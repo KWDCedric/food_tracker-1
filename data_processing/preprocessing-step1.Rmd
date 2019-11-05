@@ -1,0 +1,182 @@
+---
+title: "550 Milestone"
+output: html_document
+---
+  
+```{r}
+library(dplyr)
+```
+
+
+#=======================DATA_CLEANING
+```{r}
+# load data
+food <- read.csv("food.csv")
+branded_food <- read.csv("branded_food.csv")
+food_category <- read.csv("food_category.csv")
+nutrient <- read.csv("nutrient.csv")
+food_nutrient <- read.csv("food_nutrient.csv")
+nutrient_conversion_factor <- read.csv("food_nutrient_conversion_factor.csv")
+calorie_conversion_factor <- read.csv("food_calorie_conversion_factor.csv")
+
+```
+
+```{r}
+# ======Food=======292060
+food <- food %>% select(c(fdc_id, description, food_category_id)) %>% mutate_all(tolower)
+food$fdc_id <- as.integer(as.character(food$fdc_id))
+food$food_category_id <- as.integer(as.character(food$food_category_id))
+food_without_na <- na.omit(food)
+# food_category_id has missing values 267906
+```
+
+```{r}
+dim(food)
+head(food, 50)
+head(food_without_na, 50)
+# head(unique(food$description),20)
+missing =  which(is.na(food$food_category_id))
+head(food[missing,])
+
+dim(food_without_na)
+
+nchar(as.character(food[which.max(nchar(as.character(food$description))),]$description))
+
+
+food$description <- gsub(',', ';', food$description)
+```
+
+```{r}
+# ======Branded_food=======260370
+branded_food <- branded_food %>% select(c(fdc_id, brand_owner, ingredients, serving_size, serving_size_unit)) %>% mutate_all(tolower)
+# ingredients has missing values 5
+branded_food_without_na <- na.omit(branded_food)
+branded_food_without_na$fdc_id <- as.integer(as.character(branded_food_without_na$fdc_id))
+branded_food_without_na$serving_size <- as.integer(as.character(branded_food_without_na$serving_size))
+```
+
+```{r}
+dim(branded_food)
+head(branded_food_without_na, 20)
+# which(is.na(branded_food$ingredients))
+which(is.na(branded_food$serving_size_unit))
+
+dim(branded_food_without_na)
+
+
+nchar(as.character(branded_food[which.max(nchar(as.character(branded_food$serving_size_unit))),]$serving_size_unit))
+
+```
+
+
+
+```{r}
+# ======food_category=======28
+food_category <- food_category %>% select(c(id, description)) %>% mutate_all(tolower) %>% rename(food_category_id = id)
+food_category$food_category_id <- as.integer(as.character(food_category$food_category_id))
+```
+
+```{r}
+dim(food_category)
+head(food_category, 20)
+which(is.na(food_category$description))
+
+food_category$description <- gsub(',', ';', food_category$description)
+
+nchar(as.character(food_category[which.max(nchar(as.character(food_category$description))),]$description))
+```
+
+
+
+
+```{r}
+# ======nutrient=======227
+nutrient <- nutrient %>% select(c(id, name, unit_name)) %>% mutate_all(tolower) %>% rename(nutrient_id = id)
+nutrient$nutrient_id <- as.integer(as.character(nutrient$nutrient_id))
+```
+
+```{r}
+dim(nutrient)
+head(nutrient, 20)
+which(is.na(nutrient$unit_name))
+
+nchar(as.character(nutrient[which.max(nchar(as.character(nutrient$name))),]$name))
+```
+
+
+
+```{r}
+# ======food_nutrient=======4800957
+food_nutrient <- food_nutrient %>% select(c(fdc_id, nutrient_id, amount))
+```
+
+```{r}
+dim(food_nutrient)
+head(food_nutrient, 20)
+which(is.na(food_nutrient$amount))
+
+
+nchar(as.character(food_nutrient[which.max(nchar(as.character(food_nutrient$amount))),]$amount))
+max(food_nutrient$amount)
+food_nutrient[559022:559029,]
+```
+
+
+```{r}
+# ======nutrient_conversion_factor=======10919
+nutrient_conversion_factor <- nutrient_conversion_factor %>%  rename(nutrient_conversion_id = id)
+```
+
+```{r}
+dim(nutrient_conversion_factor)
+head(nutrient_conversion_factor, 20)
+which(is.na(nutrient_conversion_factor$fdc_id))
+
+unique(nutrient_conversion_factor$nutrient_conversion_id)
+
+dim(nutrient_conversion_factor[diff,])
+```
+
+```{r}
+# ======calorie_conversion_factor=======4767
+calorie_conversion_factor <- calorie_conversion_factor %>%  rename(nutrient_conversion_id = food_nutrient_conversion_factor_id) %>%
+    mutate(protein_value = if_else(is.na(protein_value), 0, protein_value),fat_value = if_else(is.na(fat_value), 0, fat_value) , carbohydrate_value=  if_else(is.na(carbohydrate_value), 0, carbohydrate_value))
+
+# protein_value has 110 missing values
+# fat_value has 15 missing values
+# carbohydrate_value has 117 missing values
+```
+
+```{r}
+dim(calorie_conversion_factor)
+head(calorie_conversion_factor, 20)
+which(is.na(calorie_conversion_factor$protein_value))
+which(is.na(calorie_conversion_factor$fat_value))
+which(is.na(calorie_conversion_factor$carbohydrate_value))
+
+nchar(as.character(calorie_conversion_factor[which.max(nchar(as.character(calorie_conversion_factor$protein_value))),]$protein_value))
+nchar(as.character(calorie_conversion_factor[which.max(nchar(as.character(calorie_conversion_factor$fat_value))),]$fat_value))
+nchar(as.character(calorie_conversion_factor[which.max(nchar(as.character(calorie_conversion_factor$carbohydrate_value))),]$carbohydrate_value))
+
+array1 = unique(nutrient_conversion_factor$nutrient_conversion_id)
+array2 = unique(calorie_conversion_factor$nutrient_conversion_id)
+diff = setdiff(array1,array2)
+```
+
+
+```{r}
+write.csv(food_without_na,'1_food_small.csv', row.names=F)
+write.csv(food,'1_food.csv', row.names=F)
+write.csv(branded_food_without_na,'1_branded_food.csv', row.names=F)
+write.csv(food_category,'1_food_category.csv', row.names=F)
+write.csv(nutrient,'1_nutrient.csv', row.names=F)
+write.csv(food_nutrient,'1_food_nutrient.csv', row.names=F)
+write.csv(nutrient_conversion_factor,'1_nutrient_conversion_factor.csv', row.names=F)
+write.csv(calorie_conversion_factor,'1_calorie_conversion_factor.csv', row.names=F)
+```
+
+
+
+
+
+
