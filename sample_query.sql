@@ -22,7 +22,6 @@ SELECT T.description
 FROM temp1 T
 LIMIT 20;
 
-
 -- 4
 SELECT DISTINCT F.description 
 FROM branded_food BF JOIN food F ON BF.fdc_id = F.fdc_id
@@ -45,7 +44,7 @@ FROM nutrients
 WHERE name = 'fiber, total dietary')
 SELECT sugar.description
 FROM sugar JOIN fiber ON sugar.fdc_id = fiber.fdc_id
-ORDER BY fiber DESC, sugar ASC
+ORDER BY fiber DESC, sugar ASC;
 
 
 

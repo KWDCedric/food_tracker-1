@@ -1,19 +1,15 @@
 -- 1
 CREATE TABLE food_category(
-food_category_id INT NOT NULL,
+            food_category_id INT NOT NULL,
             description VARCHAR(40),
-            PRIMARY KEY(food_category_id));
-
-CREATE TABLE food_category4(
-food_category_id VARCHAR(10),
-            description VARCHAR(1024),
             PRIMARY KEY(food_category_id));
 
 -- 2
 CREATE TABLE food(
 fdc_id INT NOT NULL, 
-            description VARCHAR(255),
             food_category_id INT,
+            descMajor VARCHAR(255),
+            descMinor VARCHAR(255),
             PRIMARY KEY(fdc_id),
             FOREIGN KEY(food_category_id)
             	REFERENCES food_category(food_category_id));
