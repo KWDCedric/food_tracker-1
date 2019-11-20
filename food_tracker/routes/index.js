@@ -82,9 +82,9 @@ router.get('/search/:s', function(req, res) {
   // var query = `SELECT DISTINCT F.descMinor
   //             FROM food F 
   //             WHERE descMajor LIKE '%${mydata}%'`;
-  var query = `SELECT DISTINCT F.descMinor, F.descMajor
+  var query = `SELECT DISTINCT  F.descMajor, F.descMinor
               FROM food F 
-              WHERE lower(descMajor) LIKE '%` + myData + `%' `;
+              WHERE lower(descMajor) LIKE '%` + myData + `%' LIMIT 20 `;
               
   console.log(query);
   connection.query(query, function(err, rows, fields) {
@@ -95,10 +95,6 @@ router.get('/search/:s', function(req, res) {
     }
   });
 });
-
-
-
-
 
 
 module.exports = router;

@@ -35,8 +35,8 @@
 
           <div class="div-row">
             <div class="dropdown-container div-cell" id="search-input-2">
-              <select selected="Select Your Food" class="dropdown" id="desc-minor-dropdown" 
-                ng-model="MinorDesc" ng-options="item as item.minorDesc for item in items"></select>
+              <select class="dropdown" id="minor_desc" ng-model="selectedItem" 
+                ng-options="item.descMajor for item in items"></select>
             </div>
             <div class="div-cell"><button id="search-desc" class="search-btn" ng-click="searchMinorDesc()">Select</button></div>
           </div>

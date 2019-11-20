@@ -18,15 +18,13 @@ app.controller('searchController', function($scope, $http) {
       method: 'GET'
     }).then(res => {
       console.log("Search Click: ", res.data);
-      // $scope.major_desc = res.data;
-      $scope.MinorDesc = res.data;
-      // $scope.MinorDesc = res.data;
+      $scope.items = res.data;
+      $scope.selectedItem = res.data[0];
     }, err => {
       console.log("Search Click ERROR: ", err);
     });
   }
 });
-
 
 
 
