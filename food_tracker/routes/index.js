@@ -72,4 +72,33 @@ router.get('/routeName/:customParameter', function(req, res) {
 });
 */
 
+// SELECT DISTINCT F.descMajor
+// FROM food F JOIN food_category C ON F.food_category_id = C.food_category_id 
+// WHERE C.descMajor = '';
+router.get('/search/:s', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  var myData = req.params.s;
+  console.log(myData);
+  // var query = `SELECT DISTINCT F.descMinor
+  //             FROM food F 
+  //             WHERE descMajor LIKE '%${mydata}%'`;
+  var query = `SELECT DISTINCT F.descMinor, F.descMajor
+              FROM food F 
+              WHERE lower(descMajor) LIKE '%` + myData + `%' `;
+              
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
+
+
+
+
+
 module.exports = router;
