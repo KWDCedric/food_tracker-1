@@ -82,7 +82,7 @@ router.get('/search/:s', function(req, res) {
   // var query = `SELECT DISTINCT F.descMinor
   //             FROM food F 
   //             WHERE descMajor LIKE '%${mydata}%'`;
-  var query = `SELECT DISTINCT  F.descMajor, F.descMinor
+  var query = `SELECT DISTINCT  F.descMajor, F.descMinor, F.fdc_id
               FROM food F 
               WHERE lower(descMajor) LIKE '%` + myData + `%' LIMIT 20 `;
               
