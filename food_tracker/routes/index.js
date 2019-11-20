@@ -29,6 +29,10 @@ router.get('/search', function(req, res) {
   res.sendFile(path.join(__dirname, '../', 'views', 'search.html'));
 });
 
+router.get('/search1', function(req, res) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'search.html'));
+});
+
 // TODO: Part (1) - Add router for /friends page
 
 // Template for a FILE request router:
@@ -73,19 +77,42 @@ router.get('/routeName/:customParameter', function(req, res) {
 */
 
 // SELECT DISTINCT F.descMajor
-// FROM food F JOIN food_category C ON F.food_category_id = C.food_category_id 
+// FROM food F JOIN food_category C ON F.food_category_id = C.food_category_id
 // WHERE C.descMajor = '';
 router.get('/search/:s', function(req, res) {
   // Parses the customParameter from the path, and assigns it to variable myData
   var myData = req.params.s;
   console.log(myData);
   // var query = `SELECT DISTINCT F.descMinor
-  //             FROM food F 
+  //             FROM food F
   //             WHERE descMajor LIKE '%${mydata}%'`;
   var query = `SELECT DISTINCT  F.descMajor, F.descMinor, F.fdc_id
-              FROM food F 
-              WHERE lower(descMajor) LIKE '%` + myData + `%' LIMIT 20 `;
-              
+              FROM food F
+              WHERE lower(descMajor) LIKE '%` + myData + `%'
+              LIMIT 20 `;
+
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
+router.get('/search1/:s', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  var myData = req.params.s;
+  console.log(myData);
+  // var query = `SELECT DISTINCT F.descMinor
+  //             FROM food F
+  //             WHERE descMajor LIKE '%${mydata}%'`;
+  var query = `SELECT FN.amount, N.name
+              FROM food_nutrient FN JOIN food F ON FN.fdc_id = F.fdc_id
+              JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
+              WHERE F.fdc_id = ` + myData + ` `;
+
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
