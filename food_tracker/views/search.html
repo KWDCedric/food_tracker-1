@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="angularjsNodejsTutorial">
+<html ng-app="FoodTracker">
   <head>
     <title>Food Tracker</title>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- Custom styles for this template-->
     <link href="/stylesheets/common.css" rel="stylesheet">
-    <link href="/stylesheets/home.css" rel="stylesheet">
+    <link href="/stylesheets/search.css" rel="stylesheet">
   </head>
 
   <body>
@@ -22,16 +22,25 @@
       </div>
     </nav>
     </br>
-    <div class="container">
+    <div class="container search-container">
       <div class="jumbotron">
         <div class="h5">Search Food</div>
-        <div class="people-container" ng-controller="homeController">
-          <div class="person" ng-repeat="p in people">
-            <div class="column">{{p.login}}</div>
-            <div class="column">{{p.name}}</div>
-            <div class="column">{{p.sex}}</div>
-            <div class="column">{{p.birthyear}}</div>
+        <div class="input-container div-table" ng-controller="searchController">
+
+          <div class="div-row">
+            <div class="div-cell"><input type="text" ng-model="major-desc" 
+              placeholder="Search for ..." id="major-desc" class="major-desc-input"/></div>
+            <div class="div-cell"><button class="search-btn" ng-click="searchMajorDesc()">Search</button></div>
           </div>
+
+          <div class="div-row">
+            <div class="dropdown-container div-cell" id="search-input-2">
+              <select selected="Select Your Food" class="dropdown" id="desc-minor-dropdown" 
+                ng-model="MinorDesc" ng-options=""></select>
+            </div>
+            <div class="div-cell"><button id="search-desc" class="search-btn" ng-click="searchMinorDesc()">Select</button></div>
+          </div>
+
         </div>
       </div>
     </div>
