@@ -3,6 +3,10 @@ SELECT DISTINCT F.description
 FROM food F JOIN food_category C ON F.food_category_id = C.food_category_id 
 WHERE C.description = 'dairy and egg products';
 
+SELECT DISTINCT F.descMajor
+FROM food F JOIN food_category C ON F.food_category_id = C.food_category_id 
+WHERE C.descMajor = '';
+
 -- 2
 SELECT F.description, FN.amount*450/100
 FROM food_nutrient FN JOIN food F ON FN.fdc_id = F.fdc_id JOIN nutrient N ON FN.nutrient_id = N.nutrient_id;
