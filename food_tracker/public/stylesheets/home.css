@@ -1,4 +1,9 @@
 
+.black-text-container{
+  color:#000000;
+  /* text-shadow:0 1px 3px #000 */
+}
+
 .white-text-container{
   color:#fff;
   text-shadow:0 1px 3px #000
