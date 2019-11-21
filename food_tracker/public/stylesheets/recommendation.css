@@ -24,6 +24,7 @@
     box-sizing: border-box;
     border-radius: 20px;
     outline: none;
+    background: #fff;
   }
 
   .input-container .range-input {

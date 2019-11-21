@@ -1,16 +1,6 @@
 var app = angular.module("FoodTracker", []);
 
 app.controller('searchController', function($scope, $http) {
-  // TODO: Q1
-  // $http({
-  //   url: '/search',
-  //   method: 'GET'
-  // }).then(res => {
-  //   console.log("Search: ", res.data);
-  //   $scope. = res.data;
-  // }, err => {
-  //   console.log("Search ERROR: ", err);
-  // });
 
   $scope.searchMajorDesc = function(){
     $http({
@@ -23,7 +13,23 @@ app.controller('searchController', function($scope, $http) {
     }, err => {
       console.log("Search Click ERROR: ", err);
     });
+  };
+
+  $scope.searchMinorDesc = function(){
+    $http({
+      url:'/search1/' + $scope.selectedItem.fdc_id,
+      method: 'GET'
+
+    }).then(res => {
+      console.log($scope.selectedItem.fdc_id);
+      console.log("Search Click: ", res.data);
+      $scope.items = res.data;
+      $scope.selectedItem = res.data[0];
+    }, err => {
+      console.log("Search Click ERROR: ", err);
+    });
   }
+
 });
 
 
