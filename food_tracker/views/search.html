@@ -12,7 +12,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <span class="navbar-brand center" href="/">Food Tracker</span>
+      <a href="/"><span class="navbar-brand center">Food Tracker</span></a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="/search">Search Food</a>
@@ -28,20 +28,21 @@
         <div class="input-container div-table" ng-controller="searchController">
 
           <div class="div-row">
-            <div class="div-cell"><input type="text" ng-model="major_desc" 
+            <div class="div-cell"><input type="text" ng-model="major_desc"
               placeholder="Search for ..." id="major-desc" class="major-desc-input"/></div>
             <div class="div-cell"><button class="search-btn" ng-click="searchMajorDesc()">Search</button></div>
           </div>
 
           <div class="div-row">
             <div class="dropdown-container div-cell" id="search-input-2">
-              <select class="dropdown" id="minor_desc" ng-model="selectedItem" 
-                ng-options="item.descMajor for item in items"></select>
+              <select class="dropdown" id="minor_desc" ng-model="selectedItem"
+                ng-options="item.descMajor + ' ' + item.descMinor for item in items"></select>
             </div>
             <div class="div-cell"><button id="search-desc" class="search-btn" ng-click="searchMinorDesc()">Select</button></div>
           </div>
 
         </div>
+
       </div>
     </div>
 
