@@ -21,10 +21,11 @@ app.controller('searchController', function($scope, $http) {
       method: 'GET'
 
     }).then(res => {
-      console.log($scope.selectedItem.fdc_id);
+      var selectedItem = $scope.selectedItem;
       console.log("Search Click: ", res.data);
-      $scope.items = res.data;
-      $scope.selectedItem = res.data[0];
+      $scope.nutrients = res.data;
+      $scope.selectedItem = selectedItem;
+      console.log("Selected Item： ", $scope.selectedItem);
     }, err => {
       console.log("Search Click ERROR: ", err);
     });
