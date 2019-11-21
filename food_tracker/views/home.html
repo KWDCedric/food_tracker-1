@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="angularjsNodejsTutorial">
+<html ng-app="FoodTracker">
   <head>
     <title>Food Tracker</title>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
     <script src="javascripts/app.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Custom styles for this template-->
-    <link href="/stylesheets/common.css" rel="stylesheet">
-    <link href="/stylesheets/home.css" rel="stylesheet">
+    <!-- <link href="../public/stylesheets/main.a3f694c0.css" rel="stylesheet"> -->
+    <link href="../public/stylesheets/common.css" rel="stylesheet">
+    <link href="../public/stylesheets/home.css" rel="stylesheet">
   </head>
 
   <body>
@@ -21,20 +23,86 @@
         </div>
       </div>
     </nav>
-    </br>
-    <div class="container">
-      <div class="jumbotron">
-        <div class="h5">Home</div>
-        <div class="people-container" ng-controller="homeController">
-          <div class="person" ng-repeat="p in people">
-            <div class="column">{{p.login}}</div>
-            <div class="column">{{p.name}}</div>
-            <div class="column">{{p.sex}}</div>
-            <div class="column">{{p.birthyear}}</div>
+
+
+    <div class="white-text-container background-image-container" style="background-image: url('../public/assets/img-home.jpg')">
+      <div class="opacity"></div>
+      <div class="container">
+          <div class="row">
+             
+              <div class="col-md-6">
+                  <h1>Food Tracker</h1>
+                  <p> write some introduction... </p>
+              </div>
+  
           </div>
-        </div>
       </div>
     </div>
+
+    <div class="white-text-container section-container border-section-container">
+        <div class="container">
+                    <div class="col-md-12 section-container-spacer">
+                        <div class="text-center">
+                            <h2 >Features</h2>
+                            <p> We have three features in our website.... </p>
+                        </div>
+                    </div>
+            <div class="row"> 
+                    <div class="col-md-4">
+                        <div class="fa-container">
+                            <i class="fa fa-cutlery fa-3x" aria-hidden="true" style='color: #fff'></i>
+                        </div>
+                        <div class="text-center">
+                            <h3>SEARCH</h3>
+                        </div>
+                        <div>
+                            <p>This page....</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="fa-container">
+                            <i class="fa fa-calculator fa-3x" aria-hidden="true" style='color: #fff'></i>
+                        </div>
+                        <div class="text-center">
+                            <h3>CALCULATOR</h3>
+                        </div>
+                        <div>
+                            <p>This page....</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="fa-container">
+                            <i class="fa fa-thumbs-o-up fa-3x" aria-hidden="true" style='color: #fff'></i>
+                        </div>
+                        <div class="text-center">
+                            <h3>RECOOMMENDATION</h3>
+                        </div>
+                        <div>
+                            <p>This page.... </p>
+                        </div>
+                    </div>
+    
+              </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <footer>
+        <div class="white-text-container section-container footer-container">
+            <div class="container">
+                        <div class="col-md-12">
+                            <h3>About us</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor</p>
+                        </div>
+
+            </div>
+        </div>
+    </footer>
+
 
     <!-- Include these before the end of body tag in every HTML file -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
