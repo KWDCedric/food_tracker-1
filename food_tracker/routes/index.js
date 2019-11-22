@@ -111,7 +111,7 @@ router.get('/search1/:s', function(req, res) {
   var query = `SELECT FN.amount, N.name
               FROM food_nutrient FN JOIN food F ON FN.fdc_id = F.fdc_id
               JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
-              WHERE F.fdc_id = ` + myData + ` `;
+              WHERE F.fdc_id = ` + myData + ` AND N.name NOT LIKE '%:%'`;
 
   console.log(query);
   connection.query(query, function(err, rows, fields) {

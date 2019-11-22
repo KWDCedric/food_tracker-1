@@ -25,8 +25,8 @@
     <div class="container search-container">
       <div class="jumbotron">
         <div class="h5">Search Food</div>
-        <div class="input-container div-table" ng-controller="searchController">
 
+        <div class="input-container div-table" ng-controller="searchController">
           <div class="div-row">
             <div class="div-cell"><input type="text" ng-model="major_desc"
               placeholder="Search for ..." id="major-desc" class="major-desc-input"/></div>
@@ -41,6 +41,13 @@
             <div class="div-cell"><button id="search-desc" class="search-btn" ng-click="searchMinorDesc()">Select</button></div>
           </div>
 
+          <div class="result-row" id="nutrients" ng-repeat="nutrient in nutrients">
+            <div class="result-column">{{nutrient.name}}</div>
+            <div class="result-column">{{nutrient.amount}}</div>
+          </div>
+
+        </div>
+          
         </div>
 
       </div>
