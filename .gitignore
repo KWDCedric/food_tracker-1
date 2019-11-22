@@ -1,4 +1,0 @@
-#.gitignore for food_tracker
-.DS_Store
-./food_tracker/.DS_Store
-./food_tracker/db-config.js
