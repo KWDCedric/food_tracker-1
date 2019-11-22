@@ -123,6 +123,29 @@ router.get('/search1/:s', function(req, res) {
   });
 });
 
+
+router.get('/nutrition/:s', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  var myData = req.params.s;
+  console.log(myData);
+  // var query = `SELECT DISTINCT F.descMinor
+  //             FROM food F
+  //             WHERE descMajor LIKE '%${mydata}%'`;
+  var query = `SELECT DISTINCT  F.descMajor, F.descMinor, F.fdc_id
+              FROM food F
+              WHERE lower(descMajor) LIKE '%` + myData + `%'
+              LIMIT 20 `;
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
+
 router.get('/recommendation/:min/:max/:name', function(req, res) {
   // Parses the customParameter from the path, and assigns it to variable myData
   var myData_min = req.params.min;
