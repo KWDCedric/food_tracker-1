@@ -27,12 +27,16 @@
         <div class="h5">Search Food</div>
 
         <div class="input-container div-table" ng-controller="searchController">
+          <div class="div-row h6">Step 1: Input the food your wish to search for</div>
+        </br>
           <div class="div-row">
             <div class="div-cell"><input type="text" ng-model="major_desc"
               placeholder="Search for ..." id="major-desc" class="major-desc-input"/></div>
             <div class="div-cell"><button class="search-btn" ng-click="searchMajorDesc()">Search</button></div>
           </div>
-
+        </br></br>
+          <div class="div-row h6">Step 2: Select the specific item to display it's nutrients</div>
+      </br>
           <div class="div-row">
             <div class="dropdown-container div-cell" id="search-input-2">
               <select class="dropdown" id="minor_desc" ng-model="selectedItem"

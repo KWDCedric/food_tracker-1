@@ -7,7 +7,7 @@
 }
 
 .input-container .major-desc-input {
-  margin: 10px 0;
+  margin-left: 20px;
   width: 250px;
   height: 36px;
   border: none;
@@ -34,7 +34,7 @@
 
 .search-container .dropdown {
   background: #fff;
-  margin: 10px 0;
+  margin-left: 20px;
   width: 250px;
   height: 36px;
   border: none;
@@ -46,11 +46,11 @@
 
 .div-table {
   display: table;     
-     
   width: auto;         
   border: 10px;         
   border-spacing: 5px; /* cellspacing:poor IE support for  this */
 }
+
 .div-row {
   display: table-row;
   width: auto;
