@@ -123,38 +123,15 @@ router.get('/search1/:s', function(req, res) {
   });
 });
 
-
-router.get('/nutrition/:s', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
-  var myData = req.params.s;
-  console.log(myData);
-  // var query = `SELECT DISTINCT F.descMinor
-  //             FROM food F
-  //             WHERE descMajor LIKE '%${mydata}%'`;
-  var query = `SELECT DISTINCT  F.descMajor, F.descMinor, F.fdc_id
-              FROM food F
-              WHERE lower(descMajor) LIKE '%` + myData + `%'
-              LIMIT 20 `;
-  console.log(query);
-  connection.query(query, function(err, rows, fields) {
-    if (err) console.log(err);
-    else {
-      // Returns the result of the query (rows) in JSON as the response
-      res.json(rows);
-    }
-  });
-});
-
-
 router.get('/recommendation/:min/:max/:name', function(req, res) {
   // Parses the customParameter from the path, and assigns it to variable myData
   var myData_min = req.params.min;
   var myData_max = req.params.max;
-  var myData_name = req.params.name;
-  console.log(req.params);
-  console.log(myData_min);
-  console.log(myData_max);
-  console.log(myData_name);
+  var myData_name = req.params.name.toLowerCase();
+  // console.log(req.params);
+  // console.log(myData_min);
+  // console.log(myData_max);
+  // console.log(myData_name);
   var query = `WITH temp_protein AS(
     SELECT F.fdc_id, FN.amount * CCF.protein_value AS protein_value
     FROM food F JOIN food_nutrient FN ON F.fdc_id = FN.fdc_id
@@ -189,8 +166,9 @@ temp1 AS(
 )
 SELECT DISTINCT F.descMajor
 FROM food F JOIN temp1 T ON F.fdc_id = T.fdc_id
-WHERE T.protein_value > `+ myData_min +`
+WHERE T.`+myData_name+`_value >= `+myData_min+`
 ORDER BY F.descMajor;
+
 `;
 
   console.log(query);
