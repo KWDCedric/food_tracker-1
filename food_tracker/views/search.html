@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="FoodTracker">
+  <head>
+    <title>Food Tracker</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <script src="javascripts/app.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Custom styles for this template-->
+    <link href="/stylesheets/common.css" rel="stylesheet">
+    <link href="/stylesheets/search.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a href="/"><span class="navbar-brand center">Food Tracker</span></a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/search">Search Food</a>
+          <a class="nav-item nav-link" href="/nutrition">Daily Nutrition</a>
+          <a class="nav-item nav-link" href="/recommendation">Recommendation</a>
+        </div>
+      </div>
+    </nav>
+    </br>
+    <div class="container search-container">
+      <div class="jumbotron">
+        <div class="h5">Search Food</div>
+
+        <div class="input-container div-table" ng-controller="searchController">
+          <div class="div-row">
+            <div class="div-cell"><input type="text" ng-model="major_desc"
+              placeholder="Search for ..." id="major-desc" class="major-desc-input"/></div>
+            <div class="div-cell"><button class="search-btn" ng-click="searchMajorDesc()">Search</button></div>
+          </div>
+
+          <div class="div-row">
+            <div class="dropdown-container div-cell" id="search-input-2">
+              <select class="dropdown" id="minor_desc" ng-model="selectedItem"
+                ng-options="item.descMajor + ' ' + item.descMinor for item in items"></select>
+            </div>
+            <div class="div-cell"><button id="search-desc" class="search-btn" ng-click="searchMinorDesc()">Select</button></div>
+          </div>
+
+          <div class="result-row" id="nutrients" ng-repeat="nutrient in nutrients">
+            <div class="result-column">{{nutrient.name}}</div>
+            <div class="result-column">{{nutrient.amount}}</div>
+          </div>
+
+        </div>
+          
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Include these before the end of body tag in every HTML file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+
+</html>
