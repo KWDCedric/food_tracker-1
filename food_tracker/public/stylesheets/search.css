@@ -61,6 +61,18 @@
   width: auto;         
 }
 
+.result-column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.result-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .input-container .search-btn:hover {
   background: #c561ae;
 }
