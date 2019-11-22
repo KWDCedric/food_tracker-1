@@ -187,7 +187,7 @@ temp1 AS(
 )
 SELECT DISTINCT F.descMajor
 FROM food F JOIN temp1 T ON F.fdc_id = T.fdc_id
-WHERE T.`+myData_name+`_value >= `+myData_min+`
+WHERE T.`+myData_name+`_value >= `+myData_min+` AND T.`+myData_name+`_value <= `+myData_max+`
 ORDER BY F.descMajor;
 
 `;
