@@ -1,0 +1,8 @@
+sudo mysqldump \
+    --databases food_tracker \
+    --master-data=2  \
+    --single-transaction \
+    --order-by-primary \
+    -r backup.sql \
+    -u root \
+    -p
