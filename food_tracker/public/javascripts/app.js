@@ -53,6 +53,9 @@ app.controller('recommendController', function($scope, $http) {
 
 app.controller('nutritionSearchController', function($scope, $http) {
   // console.log($scope.calorie)
+
+  $scope.foodList = [];
+
   $scope.searchFood = function(){
     $http({
       url:'/nutrition/' + $scope.description,
@@ -65,6 +68,18 @@ app.controller('nutritionSearchController', function($scope, $http) {
       console.log("Nutrition search click ERROR: ", err);
     });
   };
+
+  $scope.addFood = function(food){
+    console.log("Adding to list: ", food);
+    $scope.foodList.push(food);
+  };
+
+  $scope.deleteFood = function(myfood){
+    console.log("Deleting from list: ", myfood);
+    $scope.foodList.pop(myfood);
+  };
+
+
 });
 
 
