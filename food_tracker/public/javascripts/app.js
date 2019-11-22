@@ -29,10 +29,25 @@ app.controller('searchController', function($scope, $http) {
       console.log("Search Click ERROR: ", err);
     });
   }
-
 });
 
-
+app.controller('recommendController', function($scope, $http) {
+  console.log("reached")
+  console.log($scope.calorie)
+  $scope.submitIds = function(){
+    $http({
+      url:'/recommendation/' + $scope.min + '/' + $scope.max + '/' + $scope.calorie,
+      method: 'GET'
+    }).then(res => {
+      console.log($scope.calorie)
+      console.log("Search Click: ", res.data);
+      $scope.items = res.data;
+      $scope.selectedItem = res.data[0];
+    }, err => {
+      console.log("Search Click ERROR: ", err);
+    });
+  };
+});
 
 // app.controller('homeController', function($scope, $http) {
 //   $http({

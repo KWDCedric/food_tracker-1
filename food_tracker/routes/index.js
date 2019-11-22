@@ -123,5 +123,62 @@ router.get('/search1/:s', function(req, res) {
   });
 });
 
+router.get('/recommendation/:min/:max/:name', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  var myData_min = req.params.min;
+  var myData_max = req.params.max;
+  var myData_name = req.params.name;
+  console.log(req.params);
+  console.log(myData_min);
+  console.log(myData_max);
+  console.log(myData_name);
+  var query = `WITH temp_protein AS(
+    SELECT F.fdc_id, FN.amount * CCF.protein_value AS protein_value
+    FROM food F JOIN food_nutrient FN ON F.fdc_id = FN.fdc_id
+            JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
+            JOIN food_nutrient_conversion_factor NCF ON F.fdc_id = NCF.fdc_id
+            JOIN food_calorie_conversion_factor CCF ON NCF.nutrient_conversion_id = CCF. nutrient_conversion_id
+    WHERE N.name = 'protein'
+),
+temp_fat AS(
+    SELECT F.fdc_id, FN.amount*CCF.fat_value AS fat_value
+    FROM food F JOIN food_nutrient FN ON F.fdc_id = FN.fdc_id
+            JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
+            JOIN food_nutrient_conversion_factor NCF ON F.fdc_id = NCF.fdc_id
+            JOIN food_calorie_conversion_factor CCF ON NCF.nutrient_conversion_id = CCF. nutrient_conversion_id
+    WHERE N.name = 'carbohydrate, by summation'
+),
+temp_carb AS(
+    SELECT F.fdc_id, FN.amount* CCF.carbohydrate_value AS carbohydrate_value
+    FROM food F JOIN food_nutrient FN ON F.fdc_id = FN.fdc_id
+            JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
+            JOIN food_nutrient_conversion_factor NCF ON F.fdc_id = NCF.fdc_id
+            JOIN food_calorie_conversion_factor CCF ON NCF.nutrient_conversion_id = CCF. nutrient_conversion_id
+    WHERE N.name = 'total fat (nlea)'
+),
+temp1 AS(
+	SELECT TP.fdc_id,
+        TP.protein_value/(TP.protein_value+TF.fat_value+TC.carbohydrate_value) AS protein_value,
+        TF.fat_value/(TP.protein_value+TF.fat_value+TC.carbohydrate_value) AS fat_value,
+        TC.carbohydrate_value/(TP.protein_value+TF.fat_value+TC.carbohydrate_value) AS carbohydrate_value
+    FROM temp_protein TP JOIN temp_fat TF ON TP.fdc_id = TF.fdc_id
+        JOIN temp_carb TC ON TP.fdc_id = TC.fdc_id
+)
+SELECT DISTINCT F.descMajor
+FROM food F JOIN temp1 T ON F.fdc_id = T.fdc_id
+WHERE T.protein_value > `+ myData_min +`
+ORDER BY F.descMajor;
+`;
+
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
 
 module.exports = router;

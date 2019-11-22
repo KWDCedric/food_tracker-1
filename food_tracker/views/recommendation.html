@@ -24,27 +24,27 @@
     </br>
 
 
-    <div class="container">
+    <div class="container" ng-controller="recommendController">
       <div class="jumbotron">
         <div class="h5">Recommendation</div>
         <br>
         <div class="input-container">
           <div class="h6">If you like ...</div>
-          <select ng-model="calorie.name" id="calorieName" class="calorie-input"/>
+          <select ng-model="calorie" id="calorieName" class="calorie-input"/>
             <option value="protein">Protein</option>
             <option value="fat">Fat</option>
             <option value="carbo">Carbohydrate</option>
           </select>
           <br>
           <label for="calorieMin">Minimum percentage you would like: </label>
-          <input type="number" ng-model="calorie.min" placeholder="0" id="calorieMin" class="range-input" min="0" max="100"/></input>
+          <input type="number" ng-model="min" placeholder="0" id="calorieMin" class="range-input" min="0" max="100"/></input>
           <br>
           <label for="calorieMax">Maximum percentage you would like:</label>
-          <input type="number" ng-model="calorie.max" placeholder="0" id="calorieMax" class="range-input" min="0" max="100"/></input>
+          <input type="number" ng-model="max" placeholder="0" id="calorieMax" class="range-input" min="0" max="100"/></input>
           <br>
           <button id="submitCalorieBtn" class="submit-btn" ng-click="submitIds()">Submit</button>
         </div>
-        <div class="food-container" ng-controller="receommendController">
+        <div class="food-container">
           <div class="food" ng-repeat="p in food">
             <div class="column">{{p.descMajor}}</div>
             <div class="column">{{p.descMinor}}</div>
