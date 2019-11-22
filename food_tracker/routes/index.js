@@ -146,8 +146,8 @@ router.get('/nutrition/:s', function(req, res) {
 
 router.get('/recommendation/:min/:max/:name', function(req, res) {
   // Parses the customParameter from the path, and assigns it to variable myData
-  var myData_min = req.params.min;
-  var myData_max = req.params.max;
+  var myData_min = (req.params.min / 100);
+  var myData_max = (req.params.max / 100);
   var myData_name = req.params.name.toLowerCase();
   // console.log(req.params);
   // console.log(myData_min);
