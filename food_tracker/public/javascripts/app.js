@@ -51,7 +51,7 @@ app.controller('recommendController', function($scope, $http) {
   };
 });
 
-app.controller('nutritionSearchControlle', function($scope, $http) {
+app.controller('nutritionSearchController', function($scope, $http) {
   // console.log($scope.calorie)
   $scope.searchFood = function(){
     $http({
