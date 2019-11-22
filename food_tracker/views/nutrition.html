@@ -23,34 +23,41 @@
       </div>
     </nav>
     </br>
-    <div class="container">
+    <div class="container" ng-controller="nutritionSearchController">
       <div class="jumbotron">
         <div class="h5">Compute Your Daily Nutrition</div>
-
-        <div class="input-container div-table" ng-controller="nutritionSearchController">
-            <div class="div-row h6">Step 1: Input the food your wish to search for</div>
-          </br>
-            <div class="div-row">
-              <div class="div-cell"><input type="text" ng-model="description"
-                placeholder="Search for ..." id="description" class="description-input"/></div>
-              <div class="div-cell"><button class="search-btn" ng-click="searchFood()">Search</button></div>
-            </div>
-          </br></br>
-            <div class="div-row h6">Step 2: Select the specific item to display it's nutrients</div>
-            <div class="result-container">
-                <div class="result-row">
-                    <div class="result-column column-name h6">Results</div>
+        <div class = "row">
+          <div class= "col-xs-6">
+            <div class="input-container search-table">
+                <div class="search-row h6">Step 1: Input the food your wish to search for</div>
+              </br>
+                <div class="search-row">
+                  <div class="search-cell"><input type="text" ng-model="description"
+                    placeholder="Search for ..." id="description" class="description-input"/></div>
+                  <div class="search-cell"><button class="search-btn" ng-click="searchFood()">Search</button></div>
                 </div>
-              <div class="result-row" id="foodItems" ng-repeat="food in foodItems">
-                <div class="result-column">{{food.descMajor + " " + food.descMinor}}</div>
-                <div class="add-button-column"><button class="add-btn" ng-click="addFod()">+</button></div>
-              </div>
+              </br></br>
+                <div class="search-row h6">Step 2: Select the specific item to display it's nutrients</div>
+                <div class="result-container">
+                    <div class="result-row">
+                        <div class="result-column column-name h6">Results</div>
+                    </div>
+                  <div class="result-row" id="foodItems" ng-repeat="food in foodItems">
+                    <div class="result-column">{{food.descMajor + " " + food.descMinor}}</div>
+                    <div class="add-button-column"><button class="add-btn" ng-click="addFood(food)">+</button></div>
+                  </div>
+                </div>
             </div>
-        </div>
+          </div>
 
-        <div>
-        </div>
+          <div class= "col-xs-6 display-table">
+            <div class="display-row h6">Step3: Edit Your Food Here</div>
 
+            <div class="display-row" ng-repeat="myfood in foodList">
+              <div class="display-column">{{myfood.descMajor + " " + myfood.descMinor}}</div>
+              <div class="delete-button-column"><button class="delete-btn" ng-click="deleteFood(myfood)">-</button></div>
+            </div>
+      </div>
       </div>
     </div>
 

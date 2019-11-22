@@ -5,7 +5,11 @@
   .h5 {
     padding-bottom: 20px;
   }
-  
+
+  .h6{
+    padding-bottom: 20px;
+  }
+
   .input-container .description-input {
     margin-left: 20px;
     width: 250px;
@@ -21,6 +25,7 @@
     margin-top: 20px;
     padding: 2px 16px;
   }
+
   .search-btn {
     margin-left: 20px;
     width: 100px;
@@ -36,18 +41,18 @@
     font-size: 12px;
   }
 
-  .div-table {
+  .search-table {
     display: table;     
     width: auto;         
     border: 10px;         
     border-spacing: 5px; /* cellspacing:poor IE support for  this */
   }
   
-  .div-row {
+  .search-row {
     display: table-row;
     width: auto;
   }
-  .div-cell {
+  .search-cell {
     float: left; /* fix for  buggy browsers */
     display: table-column;         
     width: auto;         
@@ -58,16 +63,37 @@
     width: 300px;
   }
 
-  .add-button-column {
-    float: left;
-    padding-left:25px;
-    width: 200px;
-  }
-
-  
   /* Clear floats after the columns */
   .result-row:after {
     content: "";
     display: table;
     clear: both;
   }
+
+  .add-button-column {
+    float: left;
+    padding-left:25px;
+    width: 200px;
+  }
+
+  .display-column {
+    float: left;
+    width: 300px;
+  }
+
+  /* Clear floats after the columns */
+  .display-row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .delete-button-column {
+    float: left;
+    padding-left:25px;
+    width: 200px;
+  }
+
+
