@@ -7,7 +7,7 @@ app.controller('searchController', function($scope, $http) {
       url:'/search/' + $scope.major_desc,
       method: 'GET'
     }).then(res => {
-      console.log("Search Click: ", res.data);
+      console.log("Search major Click: ", res.data);
       $scope.items = res.data;
       $scope.selectedItem = res.data[0];
     }, err => {
@@ -22,7 +22,7 @@ app.controller('searchController', function($scope, $http) {
 
     }).then(res => {
       var selectedItem = $scope.selectedItem;
-      console.log("Search Click: ", res.data);
+      console.log("Search minor Click: ", res.data);
       $scope.nutrients = res.data;
       $scope.selectedItem = selectedItem;
       console.log("Selected Item： ", $scope.selectedItem);
@@ -41,14 +41,34 @@ app.controller('recommendController', function($scope, $http) {
       method: 'GET'
     }).then(res => {
       console.log($scope.calorie)
-      console.log("Search Click: ", res.data);
-      $scope.items = res.data;
-      $scope.selectedItem = res.data[0];
+      console.log("Recommendation: ", res.data);
+      $scope.food = res.data;
+      // $scope.items = res.data;
+      // $scope.selectedItem = res.data[0];
     }, err => {
-      console.log("Search Click ERROR: ", err);
+      console.log("Recommendation ERROR: ", err);
     });
   };
 });
+
+app.controller('nutritionSearchControlle', function($scope, $http) {
+  // console.log($scope.calorie)
+  $scope.searchFood = function(){
+    $http({
+      url:'/nutrition/' + $scope.description,
+      method: 'GET'
+    }).then(res => {
+      console.log("Nutrition search click: ", res.data);
+      $scope.foodItems = res.data;
+      // $scope.selectedItem = res.data[0];
+    }, err => {
+      console.log("Nutrition search click ERROR: ", err);
+    });
+  };
+});
+
+
+
 
 // app.controller('homeController', function($scope, $http) {
 //   $http({
