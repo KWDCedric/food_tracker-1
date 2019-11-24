@@ -8,11 +8,23 @@
 
   .h6{
     padding-bottom: 20px;
+    padding-left: 10px;
   }
 
   .input-container .description-input {
     margin-left: 20px;
     width: 250px;
+    height: 36px;
+    border: none;
+    padding: 2px 16px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    outline: none;
+  }
+
+  .amount-input {
+    margin-left: 20px;
+    width: 150px;
     height: 36px;
     border: none;
     padding: 2px 16px;
@@ -35,7 +47,22 @@
     box-sizing: border-box;
     border-radius: 20px;
     outline: none;
-    background: #bd54a4;
+    background: #32ab51;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .compute-btn {
+    margin-left: 400px;
+    width: 100px;
+    height: 36px;
+    border: none;
+    padding: 2px 16px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    outline: none;
+    background: #32ab51;
     color: #fff;
     cursor: pointer;
     font-size: 12px;
@@ -73,16 +100,16 @@
   .add-button-column {
     float: left;
     padding-left:25px;
-    width: 200px;
+    width: 150px;
   }
 
   .display-column {
     float: left;
-    width: 300px;
+    width: 200px;
   }
 
   /* Clear floats after the columns */
-  .display-row:after {
+  .display-row {
     content: "";
     display: table;
     clear: both;
@@ -93,7 +120,21 @@
   .delete-button-column {
     float: left;
     padding-left:25px;
-    width: 200px;
+    width: 150px;
   }
 
+  .search-btn:hover {
+    background: #26d701;
+  }
+  
+  .search-btn:active {
+    background: #00c301;
+  }
 
+  .compute-btn:hover {
+    background: #26d701;
+  }
+  
+  .compute-btn:active {
+    background: #00c301;
+  }

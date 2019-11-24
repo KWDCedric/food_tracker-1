@@ -51,12 +51,15 @@
           </div>
 
           <div class= "col-xs-6 display-table">
-            <div class="display-row h6">Step3: Edit Your Food Here</div>
+            <div class="display-row h6">Step 3: Edit Your Food Here</div>
 
-            <div class="display-row" ng-repeat="myfood in foodList">
+            <div class="display-row" ng-repeat="myfood in foodList track by $index">
               <div class="display-column">{{myfood.descMajor + " " + myfood.descMinor}}</div>
+              <div class="display-column"><input type="text" ng-model="amount"
+                placeholder="enter grams" id="amount" class="amount-input"/></div>
               <div class="delete-button-column"><button class="delete-btn" ng-click="deleteFood(myfood)">-</button></div>
             </div>
+            <div class="display-row"><button class="compute-btn" ng-click="computeNutrient()">Compute</button></div>
       </div>
       </div>
     </div>

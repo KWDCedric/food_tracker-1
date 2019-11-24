@@ -20,12 +20,12 @@
 
 
 .opacity{
-  background-color:rgba(255,255,255,.4);
+  background-color:rgba(255,255,255,0.3);
   position:absolute;
-  left:60px;
+  /* left:60px;
   right:500px;
   bottom:100px;
-  top:100px;
+  top:100px; */
 }
 
 
