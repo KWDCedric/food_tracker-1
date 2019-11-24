@@ -38,3 +38,38 @@
     outline: none;
   }
 
+  .section-container{
+    padding:60px 0
+  }
+  .section-container.no-padding{
+    padding-top:0
+  }
+
+  .h1,.h2,.h3,.h4,.h5,.h6{
+    font-family:inherit;
+    font-weight:500;
+    line-height:1.1;
+    color:#0c0633
+  }
+
+  .col-xs-12{
+    position:relative;min-height:1px;padding-left:15px;padding-right:15px
+  }
+
+  .col-md-6{
+    position:relative;min-height:1px;padding-left:15px;padding-right:15px;
+    float:left;
+    width:50%
+  }
+
+  .form-group{margin-bottom:15px}
+
+  .col-md-5{
+    position:relative;min-height:1px;padding-left:15px;padding-right:15px
+  }
+
+  .col-md-offset-1{margin-left:8.33333%}
+
+  
+
+
