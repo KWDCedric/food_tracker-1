@@ -79,6 +79,9 @@ app.controller('nutritionSearchController', function($scope, $http) {
     $scope.foodList.pop(myfood);
   };
 
+  $scope.computeNutrient = function(){
+    console.log("amount: ", $scope.foodList);
+  };
 
 });
 
