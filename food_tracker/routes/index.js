@@ -149,40 +149,34 @@ router.get('/nutrition/:s', function(req, res) {
   });
 });
 
-router.get('/nutrition1/:item', function(req, res) {
+router.get('/nutrition1/:id/:amount', function(req, res) {
   // Parses the customParameter from the path, and assigns it to variable myData
-  var id = req.params.item.fdc_id;
-  var amount = req.params.item.amount;
-  console.log(myData);
+  var id = req.params.id;
+  var amount = req.params.amount;
+  console.log(id);
   // var query = `SELECT DISTINCT F.descMinor
   //             FROM food F
   //             WHERE descMajor LIKE '%${mydata}%'`;
   var query = `
   WITH temp_protein AS(
-      SELECT F.fdc_id, FN.amount*(`+amount+`/100) AS protein_value, FN.amount * CCF.protein_value *(`+amount+`/100) AS protein_calorie
+      SELECT F.fdc_id, FN.amount*(`+amount+`/100) AS protein_value
       FROM food F JOIN food_nutrient FN ON F.fdc_id = FN.fdc_id
               JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
-              JOIN food_nutrient_conversion_factor NCF ON F.fdc_id = NCF.fdc_id
-              JOIN food_calorie_conversion_factor CCF ON NCF.nutrient_conversion_id = CCF. nutrient_conversion_id
       WHERE N.name = 'protein' AND F.fdc_id=`+id+`
   ),
   temp_fat AS(
-      SELECT F.fdc_id, FN.amount*(`+amount+`/100) AS fat_value, FN.amount*CCF.fat_value*(`+amount+`/100) AS fat_calorie
+      SELECT F.fdc_id, FN.amount*(`+amount+`/100) AS fat_value
       FROM food F JOIN food_nutrient FN ON F.fdc_id = FN.fdc_id
               JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
-              JOIN food_nutrient_conversion_factor NCF ON F.fdc_id = NCF.fdc_id
-              JOIN food_calorie_conversion_factor CCF ON NCF.nutrient_conversion_id = CCF. nutrient_conversion_id
-      WHERE N.name = 'carbohydrate, by summation' AND F.fdc_id=`+id+`
+      WHERE N.name = 'carbohydrate, by difference' AND F.fdc_id=`+id+`
   ),
   temp_carb AS(
-      SELECT F.fdc_id, FN.amount*(`+amount+`/100) AS carbohydrate_value, FN.amount* CCF.carbohydrate_value*(`+amount+`/100) AS carbohydrate_calorie
+      SELECT F.fdc_id, FN.amount*(`+amount+`/100) AS carbohydrate_value
       FROM food F JOIN food_nutrient FN ON F.fdc_id = FN.fdc_id
               JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
-              JOIN food_nutrient_conversion_factor NCF ON F.fdc_id = NCF.fdc_id
-              JOIN food_calorie_conversion_factor CCF ON NCF.nutrient_conversion_id = CCF. nutrient_conversion_id
-      WHERE N.name = 'total fat (nlea)' AND F.fdc_id=`+id+`
+      WHERE N.name = 'total lipid (fat)' AND F.fdc_id=`+id+`
   )
-  SELECT TP.fdc_id, TP.protein_value, TF.fat_value, TC.carbohydrate_value, (TP.protein_calorie+TF.fat_calorie+TC.carbohydrate_calorie) AS calorie
+  SELECT TP.fdc_id, TP.protein_value, TF.fat_value, TC.carbohydrate_value
   FROM temp_protein TP JOIN temp_fat TF ON TP.fdc_id = TF.fdc_id
       JOIN temp_carb TC ON TP.fdc_id = TC.fdc_id `;
   console.log(query);
