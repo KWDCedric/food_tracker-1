@@ -51,7 +51,7 @@ app.controller('recommendController', function($scope, $http) {
   };
 });
 
-app.controller('nutritionSearchController', function($scope, $http) {
+app.controller('nutritionSearchController', function($scope, $http, $q) {
   // console.log($scope.calorie)
 
   $scope.foodList = [];
@@ -80,8 +80,43 @@ app.controller('nutritionSearchController', function($scope, $http) {
   };
 
   $scope.computeNutrient = function(){
-    console.log("amount: ", $scope.foodList);
+    // console.log("amount: ", $scope.foodList);
+    // var amount = $scope.amount
+    var protein_value = 0;
+    var fat_value = 0;
+    var carbohydrate_value = 0;
+    var promises = [];
+    for(var i = 0; i < $scope.foodList.length; i++) {
+      // range.push(i);
+      console.log($scope.foodList);
+      promises.push(
+      $http({
+        url:'/nutrition1/' + $scope.foodList[i].fdc_id + '/' + $scope.foodList[i].amount,
+        method: 'GET'
+      }).then(res => {
+        console.log("Compute Nutrient click: ", res.data);
+        // $scope.foodItems = res.data;
+        // console.log(res.data[0].carbohydrate_value)
+        carbohydrate_value = carbohydrate_value + res.data[0].carbohydrate_value
+        protein_value = protein_value + res.data[0].protein_value
+        fat_value = fat_value + res.data[0].fat_value
+        // console.log(res.data[0])
+        // $scope.selectedItem = res.data[0];
+        // console.log("curr:", carbohydrate_value, protein_value, fat_value);
+      }, err => {
+        console.log("Compute Nuterrient click ERROR: ", err);
+      }))
+    }
+
+    $q.all(promises).then(function(results){
+      console.log("final:", protein_value, fat_value, carbohydrate_value);
+      $scope.protein = protein_value;
+      $scope.fat = fat_value;
+      $scope.carbohydrate_value = carbohydrate_value;
+    })
   };
+
+
 
 });
 
