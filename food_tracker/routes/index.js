@@ -153,7 +153,10 @@ router.get('/nutrition1/:id/:amount', function(req, res) {
   // Parses the customParameter from the path, and assigns it to variable myData
   var id = req.params.id;
   var amount = req.params.amount;
+
+  // console.log(myData);
   console.log(id);
+  console.log(amount);
   // var query = `SELECT DISTINCT F.descMinor
   //             FROM food F
   //             WHERE descMajor LIKE '%${mydata}%'`;
