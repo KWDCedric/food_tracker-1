@@ -215,7 +215,7 @@ temp_fat AS(
             JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
             JOIN food_nutrient_conversion_factor NCF ON F.fdc_id = NCF.fdc_id
             JOIN food_calorie_conversion_factor CCF ON NCF.nutrient_conversion_id = CCF. nutrient_conversion_id
-    WHERE N.name = 'carbohydrate, by summation'
+    WHERE N.name = 'carbohydrate, by difference'
 ),
 temp_carb AS(
     SELECT F.fdc_id, FN.amount* CCF.carbohydrate_value AS carbohydrate_value
@@ -223,7 +223,7 @@ temp_carb AS(
             JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
             JOIN food_nutrient_conversion_factor NCF ON F.fdc_id = NCF.fdc_id
             JOIN food_calorie_conversion_factor CCF ON NCF.nutrient_conversion_id = CCF. nutrient_conversion_id
-    WHERE N.name = 'total fat (nlea)'
+    WHERE N.name = 'total lipid (fat)'
 ),
 temp1 AS(
 	SELECT TP.fdc_id,

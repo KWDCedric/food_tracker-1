@@ -37,11 +37,7 @@
                   <div class="search-cell"><button class="search-btn" ng-click="searchFood()">Search</button></div>
                 </div>
               </br></br>
-                <div class="search-row h6">Step 2: Select the specific item to display it's nutrients</div>
                 <div class="result-container">
-                    <div class="result-row">
-                        <div class="result-column column-name h6">Results</div>
-                    </div>
                   <div class="result-row" id="foodItems" ng-repeat="food in foodItems">
                     <div class="result-column">{{food.descMajor + " " + food.descMinor}}</div>
                     <div class="add-button-column"><button class="add-btn" ng-click="addFood(food)">+</button></div>
@@ -51,15 +47,28 @@
           </div>
 
           <div class= "col-xs-6 display-table">
-            <div class="display-row h6">Step 3: Edit Your Food Here</div>
+            <div class="display-row h6">Step 2: Edit Your Food Here</div>
 
             <div class="display-row" ng-repeat="myfood in foodList track by $index">
               <div class="display-column">{{myfood.descMajor + " " + myfood.descMinor}}</div>
-              <div class="display-column"><input type="text" ng-model="myfood.amount"
+              <div class="display-column"><input type="number" ng-model="myfood.amount"
                 placeholder="enter grams" id="amount" class="amount-input"/></div>
               <div class="delete-button-column"><button class="delete-btn" ng-click="deleteFood(myfood)">-</button></div>
             </div>
             <div class="display-row"><button class="compute-btn" ng-click="computeNutrient()">Compute</button></div>
+
+            <div class="display-row">
+              <div class="display-column">Protein (g):</div>
+              <div class="display-column" ng-model="protein">{{protein}}</div>
+            </div>
+            <div class="display-row">
+              <div class="display-column">Fat (g):</div>
+              <div class="display-column" ng-model="fat">{{fat}}</div>
+            </div>
+            <div class="display-row">
+              <div class="display-column">Carbohydrate (g):</div>
+              <div class="display-column" ng-model="carbohydrate">{{carbohydrate}}</div>
+            </div>
       </div>
       </div>
     </div>

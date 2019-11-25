@@ -112,7 +112,7 @@ app.controller('nutritionSearchController', function($scope, $http, $q) {
       console.log("final:", protein_value, fat_value, carbohydrate_value);
       $scope.protein = protein_value;
       $scope.fat = fat_value;
-      $scope.carbohydrate_value = carbohydrate_value;
+      $scope.carbohydrate = carbohydrate_value;
     })
   };
 

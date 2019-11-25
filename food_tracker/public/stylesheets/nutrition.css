@@ -8,7 +8,6 @@
 
   .h6{
     padding-bottom: 20px;
-    padding-left: 10px;
   }
 
   .input-container .description-input {
@@ -54,7 +53,7 @@
   }
 
   .compute-btn {
-    margin-left: 400px;
+    margin-left: 350px;
     width: 100px;
     height: 36px;
     border: none;
@@ -115,6 +114,7 @@
     clear: both;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 30px;
   }
 
   .delete-button-column {
