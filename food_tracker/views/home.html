@@ -86,6 +86,7 @@
         </div>
     </div>
 
+<div ng-controller="homepageController">
     <div class="row">
         <div class="flip-card col-md-4">
             <div class="flip-card-inner">
@@ -93,7 +94,8 @@
                     <img class='flip-img' src="assets/category/beef.jpg" alt="Avatar" style="width:400px;height:200px;">
                 </div>
                 <div class="flip-card-back">
-                    <h1>Meat</h1>
+                <h1>Dairy and egg product</h1>
+                <p ng-model="egg"></p>
                 </div>
             </div>
         </div>   
@@ -103,7 +105,8 @@
                         <img class='flip-img' src="assets/category/vege.png" alt="Avatar" style="width:400px;height:200px;">
                     </div>
                     <div class="flip-card-back">
-                        <h1>Meat</h1>
+                    <h1>Vegetable</h1>
+                    <p ng-model="vege"></p>
                     </div>
                 </div>
         </div>  
@@ -114,13 +117,48 @@
                     </div>
                     <div class="flip-card-back">
                     <h1>Meat</h1>
+                    <p ng-model="meat"></p>
                     </div>
                 </div>
         </div>  
     </div>  
-     
 
-
+    <div class="row">
+        <div class="flip-card col-md-4">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                <img class='flip-img' src="assets/category/beef.jpg" alt="Avatar" style="width:400px;height:200px;">
+                </div>
+                <div class="flip-card-back">
+                <h1>Snacks</h1>
+                <p ng-model="snacks"></p>
+                </div>
+            </div>
+        </div>   
+        <div class="flip-card col-md-4">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                    <img class='flip-img' src="assets/category/vege.png" alt="Avatar" style="width:400px;height:200px;">
+                    </div>
+                    <div class="flip-card-back">
+                    <h1>Fast food</h1>
+                    <p ng-model="fastfood"></p>
+                    </div>
+                </div>
+        </div>  
+        <div class="flip-card col-md-4">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                    <img class='flip-img' src="assets/category/beverage.jpeg" alt="Avatar" style="width:400px;height:200px;">
+                    </div>
+                    <div class="flip-card-back">
+                    <h1>Beverages</h1>
+                    <p ng-model="beverages"></p>
+                    </div>
+                </div>
+        </div>  
+    </div>  
+</div>
 
 
     <footer>

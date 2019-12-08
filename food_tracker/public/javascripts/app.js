@@ -1,5 +1,84 @@
 var app = angular.module("FoodTracker", []);
 
+
+app.controller('homepageController', function($scope, $http) {
+  $http({
+        url: '/category1/sql',
+        method: 'GET'
+      }).then(res => {
+        console.log("category1: ", res.data);
+        var random =  Math.floor((Math.random() * res.data.length));
+        console.log(res.data[random]);
+        $scope.egg = res.data[random];
+      }, err => {
+        console.log("Category 1 ERROR: ", err);
+      });
+ 
+
+  $http({
+    url: '/category2/sql',
+    method: 'GET'
+  }).then(res => {
+    console.log("category2: ", res.data);
+    var random =  Math.floor((Math.random() * res.data.length));
+    console.log(res.data[random]);
+    $scope.vege = res.data[random];
+  }, err => {
+    console.log("Category 2 ERROR: ", err);
+  });
+
+  $http({
+    url: '/category3/sql',
+    method: 'GET'
+  }).then(res => {
+    console.log("category3: ", res.data);
+    var random =  Math.floor((Math.random() * res.data.length));
+    console.log(res.data[random]);
+    $scope.meat = res.data[random];
+  }, err => {
+    console.log("Category 3 ERROR: ", err);
+  });
+
+  $http({
+    url: '/category4/sql',
+    method: 'GET'
+  }).then(res => {
+    console.log("category4: ", res.data);
+    var random =  Math.floor((Math.random() * res.data.length));
+    console.log(res.data[random]);
+    $scope.snacks = res.data[random];
+  }, err => {
+    console.log("Category 4 ERROR: ", err);
+  });
+
+  $http({
+    url: '/category5/sql',
+    method: 'GET'
+  }).then(res => {
+    console.log("category5: ", res.data);
+    var random =  Math.floor((Math.random() * res.data.length));
+    console.log(res.data[random]);
+    $scope.fastfood = res.data[random];
+
+  }, err => {
+    console.log("Category 5 ERROR: ", err);
+  });
+
+  $http({
+    url: '/category6/sql',
+    method: 'GET'
+  }).then(res => {
+    console.log("category6: ", res.data);
+    var random =  Math.floor((Math.random() * res.data.length));
+    console.log(res.data[random]);
+    $scope.beverages = res.data[random];
+  }, err => {
+    console.log("Category 6 ERROR: ", err);
+  });
+
+});
+
+
 app.controller('searchController', function($scope, $http) {
 
   $scope.searchMajorDesc = function(){
