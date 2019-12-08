@@ -108,7 +108,7 @@ router.get('/category1/sql', function(req, res) {
   console.log("gkcekckevgwk");
   var query = `SELECT DISTINCT descMajor
                FROM food
-               WHERE food_category_id = 1`;
+               WHERE food_category_id = 1 AND LENGTH(descMajor)< 30 `;
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
@@ -123,7 +123,7 @@ router.get('/category2/sql', function(req, res) {
   // var myData = req.params.s;
   var query = `SELECT DISTINCT descMajor
                FROM food
-               WHERE food_category_id = 11`;
+               WHERE food_category_id = 11 AND LENGTH(descMajor)<30`;
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
@@ -139,7 +139,7 @@ router.get('/category3/sql', function(req, res) {
   // var myData = req.params.s;
   var query = `SELECT DISTINCT descMajor
                FROM food
-               WHERE food_category_id = 10 or food_category_id = 13 or food_category_id = 17`;
+               WHERE food_category_id = 10 or food_category_id = 13 or food_category_id = 17 AND LENGTH(descMajor)<30`;
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
@@ -155,7 +155,7 @@ router.get('/category4/sql', function(req, res) {
   // var myData = req.params.s;
   var query = `SELECT DISTINCT descMajor
                FROM food
-               WHERE food_category_id = 23`;
+               WHERE food_category_id = 23 AND LENGTH(descMajor)<30`;
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
@@ -171,7 +171,7 @@ router.get('/category5/sql', function(req, res) {
   // var myData = req.params.s;
   var query = `SELECT DISTINCT descMajor
                FROM food
-               WHERE food_category_id = 21`;
+               WHERE food_category_id = 21 AND LENGTH(descMajor)<30`;
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
@@ -187,7 +187,7 @@ router.get('/category6/sql', function(req, res) {
   // var myData = req.params.s;
   var query = `SELECT DISTINCT descMajor
                FROM food
-               WHERE food_category_id = 14`;
+               WHERE food_category_id = 14 AND LENGTH(descMajor)<30`;
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
