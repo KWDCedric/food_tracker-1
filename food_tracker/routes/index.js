@@ -26,6 +26,30 @@ router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
 });
 
+router.get('/category1', function(req, res) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
+});
+
+router.get('/category2', function(req, res) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
+});
+
+router.get('/category3', function(req, res) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
+});
+
+router.get('/category4', function(req, res) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
+});
+
+router.get('/category5', function(req, res) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
+});
+
+router.get('/category6', function(req, res) {
+  res.sendFile(path.join(__dirname, '../', 'views', 'home.html'));
+});
+
 router.get('/search', function(req, res) {
   res.sendFile(path.join(__dirname, '../', 'views', 'search.html'));
 });
@@ -34,9 +58,6 @@ router.get('/search1', function(req, res) {
   res.sendFile(path.join(__dirname, '../', 'views', 'search.html'));
 });
 
-// TODO: Part (1) - Add router for /friends page
-
-// Template for a FILE request router:
 
 // Specifies that when the app recieves a GET request at <PATH>,
 // it should respond by sending file <MY_FILE>
@@ -80,6 +101,103 @@ router.get('/routeName/:customParameter', function(req, res) {
   });
 });
 */
+
+router.get('/category1/sql', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  // var myData = req.params.s;
+  console.log("gkcekckevgwk");
+  var query = `SELECT DISTINCT descMajor
+               FROM food
+               WHERE food_category_id = 1`;
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+});
+
+router.get('/category2/sql', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  // var myData = req.params.s;
+  var query = `SELECT DISTINCT descMajor
+               FROM food
+               WHERE food_category_id = 11`;
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
+router.get('/category3/sql', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  // var myData = req.params.s;
+  var query = `SELECT DISTINCT descMajor
+               FROM food
+               WHERE food_category_id = 10 or food_category_id = 13 or food_category_id = 17`;
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
+router.get('/category4/sql', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  // var myData = req.params.s;
+  var query = `SELECT DISTINCT descMajor
+               FROM food
+               WHERE food_category_id = 23`;
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
+router.get('/category5/sql', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  // var myData = req.params.s;
+  var query = `SELECT DISTINCT descMajor
+               FROM food
+               WHERE food_category_id = 21`;
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
+router.get('/category6/sql', function(req, res) {
+  // Parses the customParameter from the path, and assigns it to variable myData
+  // var myData = req.params.s;
+  var query = `SELECT DISTINCT descMajor
+               FROM food
+               WHERE food_category_id = 14`;
+  console.log(query);
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      // Returns the result of the query (rows) in JSON as the response
+      res.json(rows);
+    }
+  });
+});
+
 
 // SELECT DISTINCT F.descMajor
 // FROM food F JOIN food_category C ON F.food_category_id = C.food_category_id
