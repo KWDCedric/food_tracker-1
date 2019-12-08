@@ -76,7 +76,8 @@ app.controller('nutritionSearchController', function($scope, $http, $q) {
 
   $scope.deleteFood = function(myfood){
     console.log("Deleting from list: ", myfood);
-    $scope.foodList.pop(myfood);
+    var index = $scope.foodList.indexOf(myfood);
+    $scope.foodList.splice(index, 1);   
   };
 
   $scope.computeNutrient = function(){
