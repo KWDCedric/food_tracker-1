@@ -38,6 +38,30 @@
     outline: none;
   }
 
+
+  .submit-btn {
+    margin-left: 20px;
+    width: 100px;
+    height: 36px;
+    border: none;
+    padding: 2px 16px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    outline: none;
+    background: #32ab51;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .submit-btn:hover {
+    background: #26d701;
+  }
+  
+  .submit-btn:active {
+    background: #00c301;
+  }
+
   .section-container{
     padding:60px 0
   }
@@ -49,7 +73,8 @@
     font-family:inherit;
     font-weight:500;
     line-height:1.1;
-    color:#0c0633
+    color:#0c0633;
+    padding-bottom: 20px;
   }
 
   .col-xs-12{
@@ -70,6 +95,14 @@
 
   .col-md-offset-1{margin-left:8.33333%}
 
-  
-
-
+  .scroller {
+    width: 500px;
+    height: 600px;
+    overflow: scroll;
+    scrollbar-width: thin;
+    border: 2px solid #efe7db;
+    border-radius: 20px;
+    padding: 20px;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
