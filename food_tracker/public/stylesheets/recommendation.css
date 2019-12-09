@@ -157,3 +157,33 @@ h5 {
   clear: both;
 }
 
+
+.floating {  
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  /* margin-left: 30px; */
+  margin-top: -50px;
+}
+
+@keyframes floating {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, 15px); }
+  to   { transform: translate(0, -0px); }    
+}
+
+.floating1 {  
+  animation-name: floating1;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  /* margin-left: 30px; */
+  margin-top: -50px;
+}
+
+@keyframes floating1 {
+  from { transform: translate(0, 15px); }
+  65%  { transform: translate(0, 0px); }
+  to   { transform: translate(0, 15px); }    
+}
