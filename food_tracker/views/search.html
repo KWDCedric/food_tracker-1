@@ -94,7 +94,7 @@
                             </thead>
                             <tbody>
                               <tr ng-repeat="nutrient in nutrients">
-                                <th scope="row">{{nutrient.name}}</th>
+                                <th scope="row">{{nutrient.name | capitalize}}</th>
                                 <td>{{nutrient.amount | number: 1}}</td>
                               </tr>
                             </tbody>
