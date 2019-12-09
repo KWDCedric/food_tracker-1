@@ -184,7 +184,7 @@ app.controller('nutritionSearchController', function($scope, $http, $q) {
         // $scope.selectedItem = res.data[0];
         // console.log("curr:", carbohydrate_value, protein_value, fat_value);
       }, err => {
-        console.log("Compute Nuterrient click ERROR: ", err);
+        console.log("Compute Nuterient click ERROR: ", err);
       }))
     }
 
