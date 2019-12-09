@@ -52,6 +52,14 @@ h5 {
   outline: none;
 }
 
+.opacity{
+  background-color:rgba(255,255,255,0.3);
+  position:relative;
+  left:60px;
+  right:500px;
+  bottom:100px;
+  top:100px;
+}
 
 .submit-btn {
   margin-left: 20px;
@@ -109,9 +117,16 @@ h5 {
 
 .col-md-offset-1{margin-left:8.33333%}
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .scroller {
   width: 400px;
-  height: 600px;
+  height: 320px;
   overflow: scroll;
   scrollbar-width: thin;
   border: 5px solid rgb(230, 224, 212);
@@ -121,3 +136,44 @@ h5 {
   overflow-x: hidden;
   max-width: 100%;
 }
+
+.search-container .search-btn {
+  margin-left: 20px;
+  width: 100px;
+  height: 36px;
+  border: none;
+  padding: 2px 16px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+  background: #32ab51;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.search-container .dropdown {
+  background: #fff;
+  margin-left: 20px;
+  width: 250px;
+  height: 36px;
+  border: none;
+  padding: 2px 16px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+}
+
+.result-column {
+  float: left;
+  width: 50%;
+  padding:  5px;
+}
+
+/* Clear floats after the columns */
+.result-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
