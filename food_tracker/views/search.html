@@ -31,10 +31,27 @@
           </div>
         </nav>
     </br>
-    <div class="container search-container">
-      <div class="jumbotron">
-        <div class="h5">Search Food</div>
 
+
+
+  <div class="section-container no-padding search-container input-container" ng-controller="searchController">
+  <div class="container">
+      <div class="jumbotron">
+          <div class="col-xs-12">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="h3">Search Food</div>
+                          <div class="form-group">
+                            <div class="div-row h6">Step 1: Input the food your wish to search for</div>
+                            </br>
+                            <div class="div-row">
+                              <div class="div-cell"><input type="text" ng-model="major_desc"
+                                placeholder="Search for ..." id="major-desc" class="major-desc-input"/></div>
+                              <div class="div-cell"><button class="search-btn" ng-click="searchMajorDesc()">Search</button></div>
+                            </div>
+                          </div>
+
+<<<<<<< Updated upstream
         <div class="row">
         <div class="input-container div-table col-md-6">
           <div class="div-row h6">Step 1: Input the food your wish to search for</div>
@@ -66,9 +83,45 @@
       </div>
           
         </div>
+=======
+                          <div class="form-group">
+                              <div class="div-row h6">Step 2: Select the specific item to display it's nutrients</div>
+                          </br>
+                              <div class="div-row">
+                                <div class="dropdown-container div-cell" id="search-input-2">
+                                  <select class="dropdown" id="minor_desc" ng-model="selectedItem"
+                                    ng-options="item.descMajor + ' ' + item.descMinor for item in items"></select>
+                                </div>
+                                <div class="div-cell"><button id="search-desc" class="search-btn" ng-click="searchMinorDesc()">Select</button></div>
+                              </div>    
+                          </div>
+                  </div>
 
-      </div>
+
+                  <!-- <div class="col-md-5 col-md-offset-1 input-container"> -->
+                      <div class="col-md-6">
+                      <h3>RESULT</h3>
+                          <div class="result-row" id="nutrients" ng-repeat="nutrient in nutrients">
+                                  <div class="result-column">
+                                        {{nutrient.name}}:
+                                  </div>
+                                  <div class="result-column">
+                                        {{nutrient.amount}}
+                                  </div>
+                               <div>
+                            </div>
+>>>>>>> Stashed changes
+
+                      </div>
+
+                  </div>
+
+                </div>
+              </div>
     </div>
+  </div>
+  </div>
+
 
     <!-- Include these before the end of body tag in every HTML file -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
