@@ -5,10 +5,6 @@ body{
   background-size: 1000px 1000px;
 }
 
-.page-title{
-  margin-bottom: 40px;
-}
-
 .search-container {
   margin-top: 2rem;
 }
@@ -111,7 +107,10 @@ body{
 }
 
 .col-xs-12{
-  position:relative;min-height:1px;padding-left:15px;padding-right:15px
+  /* position:relative; */
+  /* min-height:1px; */
+  /* padding-left:15px;
+  padding-right:15px; */
 }
 
 .col-md-6{
@@ -129,7 +128,7 @@ body{
 .col-md-offset-1{margin-left:8.33333%}
 
 
-.scroller {
+/* .scroller {
   width: 500px;
   height: 500px;
   overflow: scroll;
@@ -140,4 +139,13 @@ body{
   padding: 20px;
   overflow-x: hidden;
   max-width: 100%;
-}
+} */
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 350px;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
