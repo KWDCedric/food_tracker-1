@@ -45,9 +45,9 @@
         </nav>
 
 
-    <div class="white-text-container background-image-container" style="background-image: url('/assets/img-home.jpg')">
+    <div class="white-text-container background-image-container" style="background-image: url('/assets/img-home.jpg'); padding:120px;">
       <div class="opacity"></div>
-      <div class="container">
+      <div class="container"  style="padding-left: 0px;">
           <div class="row">
              
               <div class="col-md-6">
@@ -59,9 +59,13 @@
       </div>
     </div>
 
-    <i class="fa fa-angle-double-down fa-4x" aria-hidden="true"></i>
-
-    <div class="black-text-container section-container border-section-container">
+    <a href="#descLink" class="button" id="cn">
+        <i class="fa fa-angle-double-down fa-4x arrow bounce" aria-hidden="true"></i>
+    </a>
+    
+    <section id="desc">
+    <!-- <a id="descLink" class="panel"> -->
+    <div id="descLink" class="panel black-text-container section-container border-section-container">
         <div class="container">
                     <!-- <div class="col-md-12 section-container-spacer">
                         <div class="text-center">
@@ -119,7 +123,7 @@
     
               </div>
         </div>
-    </div>
+    </div></a>
 
 <div ng-controller="homepageController">
     <div class="row">
@@ -188,6 +192,7 @@
         </div>  
     </div>  
 </div>
+</section>
 
 
     <footer>

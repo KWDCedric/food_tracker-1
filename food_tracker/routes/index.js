@@ -123,7 +123,7 @@ router.get('/category2/sql', function(req, res) {
   // var myData = req.params.s;
   var query = `SELECT DISTINCT descMajor
                FROM food
-               WHERE food_category_id = 11 AND LENGTH(descMajor)<30`;
+               WHERE food_category_id = 11 AND LENGTH(descMajor)<30 AND descMajor NOT REGEXP '[0-9]+' `;
   console.log(query);
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
