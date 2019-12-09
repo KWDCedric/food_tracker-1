@@ -29,7 +29,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-              <a class="navbar-brand" href="/">Food Tracker</a>
+              <a class="navbar-brand main-title-top" href="/">Food Tracker</a>
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="/search">Search Food</a>
@@ -51,13 +51,15 @@
           <div class="row">
              
               <div class="col-md-6">
-                  <h1>Food Tracker</h1>
-                  <p> write some introduction... </p>
+                  <h1 class = "main-title">Food Tracker</h1>
+                  <p class="sub-title"> -- Know What You Eat -- </p>
               </div>
   
           </div>
       </div>
     </div>
+
+    <i class="fa fa-angle-double-down fa-4x" aria-hidden="true"></i>
 
     <div class="black-text-container section-container border-section-container">
         <div class="container">
@@ -69,38 +71,49 @@
             <div class="row"> 
                     <div class="col-md-4">
                         <div class="fa-container">
-                            <i class="fa fa-cutlery fa-4x" aria-hidden="true" style='color: #000'></i>
+                            <i class="fa fa-cutlery fa-4x" aria-hidden="true" style='color: rgb(162,115,97)'></i>
                         </div>
                         <br>
                         <div class="text-center">
-                            <a href="/search"  style="color:rgb(162,115,97)"><h4>SEARCH</h4></a>
+                            <a href="/search"  style="color:rgb(162,115,97)">
+                                <h4 class="page-title">Search</h4>
+                            </a>
                         </div>
                         <div>
-                            <p>This page....</p>
+                            <p class="title-desc">Search for your favorite food and we will return you it's nutrition information. 
+                               We got all the details down to different brands!</p>
                         </div>
                       </div>
                     <div class="col-md-4">
                         <div class="fa-container">
-                            <i class="fa fa-calculator fa-4x" aria-hidden="true" style='color: #000'></i>
+                            <i class="fa fa-calculator fa-4x" aria-hidden="true" style='color:rgb(162,115,97)'></i>
                         </div>
                         <br>
                         <div class="text-center">
-                            <a href="/nutrition" style="color:rgb(162,115,97)"><h4>CALCULATOR</h4></a>
+                            <a href="/nutrition" style="color:rgb(162,115,97)">
+                                <h4 class="page-title">Nutrition Calculator</h4>
+                            </a>
                         </div>
                         <div>
-                            <p>This page....</p>
+                            <p class="title-desc">Search for the food you ate or plan to eat for the day with the amount and we will calculate
+                                all the macronutrients for you. Time to get those gainz!</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="fa-container">
-                            <i class="fa fa-thumbs-o-up fa-4x" aria-hidden="true" style='color: #000'></i>
+                            <i class="fa fa-thumbs-o-up fa-4x" aria-hidden="true" style='color: rgb(162,115,97)'></i>
                         </div>
                         <br>
                         <div class="text-center">
-                            <a href="/recommendation" style="color:rgb(162,115,97)"><h4>RECOMMENDATION</h4></a>
+                            <a href="/recommendation" style="color:rgb(162,115,97)">
+                                <h4 class="page-title">Recommendation</h4>
+                            </a>
                         </div>
                         <div>
-                            <p>This page.... </p>
+                            <p class="title-desc"> Recommend food for you based on your preference. 
+                                You can tell us the percentage of macros 
+                                you would like and we will tell you exactly 
+                                what food you want! </p>
                         </div>
                     </div>
     
@@ -116,7 +129,7 @@
                     <img class='flip-img' src="assets/category/egg.jpg" alt="Avatar" style="height:200px;">
                 </div>
                 <div class="flip-card-back">
-                    <p class = "centered flip-back-text" ng-model="egg">{{egg.descMajor}}</p>
+                    <p class = "centered flip-back-text" ng-model="egg">{{egg.descMajor | capitalize}}</p>
                 </div>
             </div>
         </div>   
@@ -126,7 +139,7 @@
                         <img class='flip-img' src="assets/category/vege.png" alt="Avatar" style="height:200px;">
                     </div>
                     <div class="flip-card-back">
-                        <p class = "centered flip-back-text" ng-model="vege">{{vege.descMajor}}</p>
+                        <p class = "centered flip-back-text" ng-model="vege">{{vege.descMajor | capitalize}}</p>
                     </div>
                 </div>
         </div>  
@@ -136,7 +149,7 @@
                         <img class='flip-img' src="assets/category/lamb.jpg" alt="Avatar" style="height:200px;">
                     </div>
                     <div class="flip-card-back">
-                        <p class = "centered flip-back-text" ng-model="meat">{{meat.descMajor}}</p>
+                        <p class = "centered flip-back-text" ng-model="meat">{{meat.descMajor | capitalize}}</p>
                     </div>
                 </div>
         </div>  
@@ -149,7 +162,7 @@
                     <img class='flip-img' src="assets/category/bulk-snacks.jpg" alt="Avatar" style="height:200px;">
                 </div>
                 <div class="flip-card-back">
-                    <p class = "centered flip-back-text" ng-model="snacks">{{snacks.descMajor}}</p>
+                    <p class = "centered flip-back-text" ng-model="snacks">{{snacks.descMajor | capitalize}}</p>
                 </div>
             </div>
         </div>   
@@ -159,7 +172,7 @@
                         <img class='flip-img' src="assets/category/fastfood.jpg" alt="Avatar" style="height:200px;">
                     </div>
                     <div class="flip-card-back">
-                        <p class = "centered flip-back-text" ng-model="fastfood">{{fastfood.descMajor}}</p>
+                        <p class = "centered flip-back-text" ng-model="fastfood">{{fastfood.descMajor | capitalize}}</p>
                     </div>
                 </div>
         </div>  
@@ -169,7 +182,7 @@
                         <img class='flip-img' src="assets/category/beverage1.jpg" alt="Avatar" style="height:200px;">
                     </div>
                     <div class="flip-card-back">
-                        <p class = "centered flip-back-text" ng-model="beverages">{{beverages.descMajor}}</p>
+                        <p class = "centered flip-back-text" ng-model="beverages">{{beverages.descMajor | capitalize}}</p>
                     </div>
                 </div>
         </div>  
