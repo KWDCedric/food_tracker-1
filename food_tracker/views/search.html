@@ -68,18 +68,16 @@
                   <!-- <div class="col-md-5 col-md-offset-1 input-container"> -->
                       <div class="col-md-6">
                       <h3>RESULT</h3>
+                        <div class = "scroller" >
                           <div class="result-row" id="nutrients" ng-repeat="nutrient in nutrients">
                                   <div class="result-column">
                                         {{nutrient.name}}:
                                   </div>
                                   <div class="result-column">
-                                        {{nutrient.amount}}
+                                        {{nutrient.amount | number: 1}}
                                   </div>
-                               <div>
-                            </div>
-
-                      </div>
-
+                          </div>
+                        </div>
                   </div>
 
                 </div>
