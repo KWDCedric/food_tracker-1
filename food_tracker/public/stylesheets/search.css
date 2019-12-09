@@ -122,3 +122,17 @@ body{
 }
 
 .col-md-offset-1{margin-left:8.33333%}
+
+
+.scroller {
+  width: 500px;
+  height: 500px;
+  overflow: scroll;
+  scrollbar-width: thin;
+  border: 5px solid rgb(230, 224, 212);
+  background-color: rgb(230, 224, 212);
+  border-radius: 20px;
+  padding: 20px;
+  overflow-x: hidden;
+  max-width: 100%;
+}

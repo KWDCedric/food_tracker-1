@@ -1,12 +1,12 @@
-body{
-  background-image: url(bg1.png);
-  background-repeat: repeat repeat;
-  background-size: 1000px 1000px;
-}
-
-.search-container {
-    margin-top: 2rem;
+  body{
+    background-image: url(bg1.png);
+    background-repeat: repeat repeat;
+    background-size: 1000px 1000px;
   }
+
+  .nutrition-container {
+      margin-top: 2rem;
+    }
   
   .h5 {
     padding-bottom: 20px;

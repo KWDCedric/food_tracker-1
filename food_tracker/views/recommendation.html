@@ -64,7 +64,7 @@
 
 
 <div class="section-container no-padding" ng-controller="recommendController">
-    <div class="container">
+    <div class="container recommendation-container">
         <div class="jumbotron">
         <div class="h3">If you like ...</div>
           <div class="row">
@@ -85,18 +85,23 @@
                     <input type="number" ng-model="max" placeholder="0" id="calorieMax" class="range-input" min="0" max="100"/></input>
                 </div>
                 <button id="submitCalorieBtn" class="submit-btn" ng-click="submitIds()">Submit</button>
+
+                <div>
+                  <h5>Recommended Food</h5>
+                  <div class="col-md-6 input-container scroller">   
+                    <div class="food-container">
+                      <div class="food" ng-repeat="p in food">
+                        <div class="column">{{p.descMajor}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
               </div>
 
-              <div>
-                <h5>Recommended Food</h5>
-              <div class="col-md-6 input-container scroller">   
-                <div class="food-container ">
-                  <div class="food" ng-repeat="p in food">
-                    <div class="column">{{p.descMajor}}</div>
-                  </div>
-                </div>
-              </div>
-              </div>
+              <a class="twitter-timeline" data-lang="en" data-width="700" data-height="500" 
+              href="https://twitter.com/tastemade?ref_src=twsrc%5Etfw">Tweets by tastemade</a> 
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
             </div>
     </div>
