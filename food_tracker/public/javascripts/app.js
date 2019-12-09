@@ -6,6 +6,13 @@ app.filter('capitalize', function() {
   }
 });
 
+app.filter('removeString', function () {
+  return function (text) {
+      var str = text.replace('NA', '');
+      return str;
+  };
+});
+
 app.controller('homepageController', function($scope, $http) {
   $http({
         url: '/category1/sql',
@@ -92,8 +99,13 @@ app.controller('searchController', function($scope, $http) {
       method: 'GET'
     }).then(res => {
       console.log("Search major Click: ", res.data);
-      $scope.items = res.data;
-      $scope.selectedItem = res.data[0];
+      var returnData = res.data;
+      for (var i=0; i < res.data.length; i++){
+        returnData[i].descMajor = returnData[i].descMajor.replace("NA" ,"");
+      }
+      $scope.items = returnData;
+      console.log("first item: ", returnData[0]);
+      $scope.selectedItem = returnData[0];
     }, err => {
       console.log("Search Click ERROR: ", err);
     });
@@ -146,8 +158,11 @@ app.controller('nutritionSearchController', function($scope, $http, $q) {
       method: 'GET'
     }).then(res => {
       console.log("Nutrition search click: ", res.data);
-      $scope.foodItems = res.data;
-      // $scope.selectedItem = res.data[0];
+      var returnData = res.data;
+      for (var i=0; i < res.data.length; i++){
+        returnData[i].descMajor = returnData[i].descMajor.replace("NA" ,"");
+      }
+      $scope.foodItems = returnData;
     }, err => {
       console.log("Nutrition search click ERROR: ", err);
     });

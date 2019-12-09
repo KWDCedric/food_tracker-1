@@ -35,9 +35,9 @@
       <div class="jumbotron ">
         <div class="page-title-top">Compute Your Daily Nutrition</div>
         <div class = "row">
-          <div class= "col-xs-3">
+          <!-- <div class= "col-xs-3"> -->
             <div class="input-container search-table">
-                <div class="search-row h6">Step 1: Input the food your wish to search for</div>
+                <div class="search-row h6" style="font-weight: 600;">Step 1: Input the food your wish to search for</div>
               </br>
                 <div class="search-row">
                   <div class="search-cell"><input type="text" ng-model="description"
@@ -45,25 +45,62 @@
                   <div class="search-cell"><button class="search-btn" ng-click="searchFood()">Search</button></div>
                 </div>
               </br></br>
-                <div class="result-container">
+
+                <!-- <div class="result-container">
                   <div class="result-row" id="foodItems" ng-repeat="food in foodItems">
                     <div class="result-column">{{food.descMajor + " " + food.descMinor}}</div>
                     <div class="add-button-column"><button class="add-btn" ng-click="addFood(food)">+</button></div>
                   </div>
-                </div>
+                </div> -->
+
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <table class="table table-hover food-result-table">
+                        <!-- <thead>
+                          <tr>
+                            <th scope="col">Search Result</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead> -->
+                        <tbody>
+                          <tr id="foodItems" ng-repeat="food in foodItems">
+                            <td scope="row" class="food-search-item-col">{{food.descMajor + " " + food.descMinor}}</td>
+                            <td><div class="add-button-column"><button class="add-btn" ng-click="addFood(food)">+</button></div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+
+
             </div>
-          </div>
+          <!-- </div> -->
 
-          <div class= "col-xs-3">
-            <div class="display-row h6">Step 2: Edit Your Food Here</div>
+          <div class= "right-content">
+            <div class="display-row h6" style="font-weight: 600;">Step 2: Edit Your Food Here</div>
 
-            <div class="display-row" ng-repeat="myfood in foodList track by $index">
+            <!-- <div class="display-row" ng-repeat="myfood in foodList track by $index">
               <div class="display-column">{{myfood.descMajor + " " + myfood.descMinor}}</div>
               <div class="display-column"><input type="number" ng-model="myfood.amount"
                 placeholder="enter grams" id="amount" class="amount-input"/></div>
               <div class="delete-button-column"><button class="delete-btn" ng-click="deleteFood(myfood)">-</button></div>
-            </div>
-            <div class="display-row"><button class="compute-btn" ng-click="computeNutrient()">Compute</button></div>
+            </div> -->
+
+            <div class="table-wrapper-scroll-y my-custom-scrollbar user-food-scroller">
+                <table class="table table-hover user-food-table">
+                    <tbody>
+                      <tr id="foodItems" ng-repeat="myfood in foodList track by $index">
+                        <td scope="row" class="">{{myfood.descMajor + " " + myfood.descMinor}}</td>
+                        <td><div class="display-column"><input type="number" ng-model="myfood.amount"
+                          placeholder="enter grams" id="amount" class="amount-input"/></div></td>
+                        <td><div class="delete-button-column"><button class="delete-btn" ng-click="deleteFood(myfood)">-</button></div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div class="display-row">
+                  <button class="compute-btn" ng-click="computeNutrient()">Compute</button>
+              </div>
+
+            <!-- <div class="display-row"><button class="compute-btn" ng-click="computeNutrient()">Compute</button></div> -->
 
             <div class="display-row">
               <div class="display-column">Protein (g):</div>

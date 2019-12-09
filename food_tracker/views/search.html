@@ -56,7 +56,7 @@
                           </br>
                               <div class="div-row">
                                 <div class="dropdown-container div-cell" id="search-input-2">
-                                  <select class="dropdown" id="minor_desc" ng-model="selectedItem"
+                                  <select class="dropdown" id="minor_desc" ng-model="selectedItem" placeholder="select an item"
                                     ng-options="item.descMajor + ' ' + item.descMinor for item in items"></select>
                                 </div>
                                 <div class="div-cell"><button id="search-desc" class="search-btn" ng-click="searchMinorDesc()">Select</button></div>
@@ -94,7 +94,7 @@
                             </thead>
                             <tbody>
                               <tr ng-repeat="nutrient in nutrients">
-                                <th scope="row">{{nutrient.name | capitalize}}</th>
+                                <td scope="row">{{nutrient.name | capitalize}}</td>
                                 <td>{{nutrient.amount | number: 1}}</td>
                               </tr>
                             </tbody>
