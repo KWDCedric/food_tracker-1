@@ -11,19 +11,6 @@ h5 {
   margin-top: 2rem;
 }
 
-.food-container {
-    display: flex;
-    flex-flow: column wrap;
-    margin-top: 10px;
-  }
-  
-.food-container {
-  padding-top:20px;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  height: 40px;
-}
 
 /* .food .column {
   flex: 1 0 20%;
@@ -52,14 +39,6 @@ h5 {
   outline: none;
 }
 
-.opacity{
-  background-color:rgba(255,255,255,0.3);
-  position:relative;
-  left:60px;
-  right:500px;
-  bottom:100px;
-  top:100px;
-}
 
 .submit-btn {
   margin-left: 20px;
