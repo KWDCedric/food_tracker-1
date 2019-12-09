@@ -1,13 +1,16 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   /* background: url('./../assets/bg.jpg') center center no-repeat fixed; */
-  background-color: #efe7db;
-  height: 100vh;
-  width: 100vw;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  /* background-color: #efe7db; */
+  /* background-image: url(bg1.png);
+  background-repeat: repeat repeat; */
+  /* height: 100vh; */
+  /* width: 100vw; */
+  /* background-color:rgba(0,0,0,0.2); */
+  -webkit-background-size: auto;
+  -moz-background-size: auto;
+  -o-background-size: auto;
+  background-size: auto;
 }
 
 .nav-container {
