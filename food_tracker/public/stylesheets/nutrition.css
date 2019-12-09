@@ -75,9 +75,13 @@
 
   .search-table {
     display: table;     
-    width: auto;         
+    width: 40%;         
     border: 10px;         
     border-spacing: 5px; /* cellspacing:poor IE support for  this */
+  }
+
+  .right-content{
+    width: 60%;
   }
   
   .search-row {
@@ -105,12 +109,17 @@
   .add-button-column {
     float: left;
     padding-left:25px;
-    width: 150px;
+    width: 10%;
+  }
+
+  .food-search-item-col {
+    width: 60%;
   }
 
   .display-column {
     float: left;
     width: 200px;
+    font-size: larger;
   }
 
   /* Clear floats after the columns */
@@ -143,4 +152,46 @@
   
   .compute-btn:active {
     background: #00c301;
+  }
+
+  .my-custom-scrollbar {
+    /* position: relative; */
+    height: 350px;
+    border-width: 10px;
+    border-color:10px;
+    overflow: auto;
+  }
+
+  .table-wrapper-scroll-y {
+    display: block;
+  }
+
+  .food-result-table {
+    border-collapse: collapse;
+    width: 90%;
+  }
+
+  .user-food-table{
+    margin-left: 5%;
+    width: 80%
+  }
+
+  .user-food-scroller {
+    height: 300px;
+  }
+
+  /* th { 
+    text-align: left; 
+    position: sticky; 
+    top: 0;
+    background-color: #f3f4f7;
+    border: 1px solid #ddd !important;
+    } */
+
+  tr {
+    border-bottom: 0.5px solid #ccc;
+  }
+
+  .user-food-table th, .user-food-table td {
+      border: 0px !important;
   }

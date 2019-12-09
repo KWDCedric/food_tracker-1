@@ -13,6 +13,12 @@ body{
   padding-bottom: 20px;
 }
 
+th { 
+  position: sticky; 
+  top: 0;
+  background-color: #f3f4f7;
+ }
+
 .input-container .major-desc-input {
   margin-left: 20px;
   width: 250px;
@@ -141,7 +147,7 @@ body{
 } */
 
 .my-custom-scrollbar {
-  position: relative;
+  /* position: relative; */
   height: 350px;
   overflow: auto;
   }
