@@ -70,7 +70,7 @@
               <div class="col-md-6">
                   <div class="page-title-top">Macros Preference</div>
                 <div class="form-group">
-                  <label for="calorieName">Choose the macros you care about: </label>
+                  <h6><label for="calorieName">Choose the macros you care about: </label></h6>
                   <select ng-model="calorie" id="calorieName" class="calorie-input major-desc-input">
                     <option value="protein">Protein</option>
                     <option value="fat">Fat</option>
@@ -78,11 +78,11 @@
                   </select>
                 </div>
                 <div class="form-group">
-                    <label for="calorieMin">Minimum percentage you would like (0-100): </label>
+                    <h6><label for="calorieMin">Minimum percentage you would like (0-100): </label></h6>
                     <input type="number" ng-model="min" placeholder="0" id="calorieMin" class="range-input" min="0" max="100"/></input>
                 </div>
                 <div class="form-group">
-                    <label for="calorieMax">Maximum percentage you would like (0-100):</label>
+                    <h6><label for="calorieMax">Maximum percentage you would like (0-100):</label></h6>
                     <input type="number" ng-model="max" placeholder="0" id="calorieMax" class="range-input" min="0" max="100"/></input>
                 </div>
                 <button id="submitCalorieBtn" class="submit-btn" ng-click="submitIds()">Submit</button>
@@ -90,12 +90,21 @@
                 <div class="col-md-6">
                   <h4 style="padding-top: 10px;">Recommended Food</h4>
                   <br>
-                  <div class="scroller">   
+                  <!-- <div class="scroller">   
                       <div class="food" ng-repeat="p in food">
                           {{p.descMajor | capitalize}}
                       </div>
+                    </div> -->
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                      <table class="table table-hover food" >
+                        <tbody>
+                          <tr ng-repeat="p in food">
+                            <td scope="row">{{p.descMajor | capitalize}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                  </div>
+                </div>
                   </div>
             </div>
     </div>
