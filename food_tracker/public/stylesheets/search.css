@@ -1,0 +1,149 @@
+
+body{
+  background-image: url(bg1.png);
+  background-repeat: repeat repeat;
+  background-size: 1000px 1000px;
+}
+
+.search-container {
+  margin-top: 2rem;
+}
+
+.h5 {
+  padding-bottom: 20px;
+}
+
+th { 
+  position: sticky; 
+  top: 0;
+  background-color: #f3f4f7;
+ }
+
+.input-container .major-desc-input {
+  margin-left: 20px;
+  width: 250px;
+  height: 36px;
+  border: none;
+  padding: 2px 16px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+}
+
+.search-container .search-btn {
+  margin-left: 20px;
+  width: 100px;
+  height: 36px;
+  border: none;
+  padding: 2px 16px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+  background: #32ab51;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.search-container .dropdown {
+  background: #fff;
+  margin-left: 20px;
+  width: 250px;
+  height: 36px;
+  border: none;
+  padding: 2px 16px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+}
+
+.div-table {
+  display: table;     
+  width: auto;         
+  border: 10px;         
+  border-spacing: 5px; /* cellspacing:poor IE support for  this */
+}
+
+.div-row {
+  display: table-row;
+  width: auto;
+}
+.div-cell {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: auto;         
+}
+
+.result-column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.result-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.input-container .search-btn:hover {
+  background: #26d701;
+}
+
+.input-container .search-btn:active {
+  background: #00c301;
+}
+
+
+
+
+.section-container{
+  padding:60px 0
+}
+.section-container.no-padding{
+  padding-top:0
+}
+
+.h1,.h2,.h3,.h4,.h5,.h6{
+  font-family:inherit;
+  font-weight:500;
+  line-height:1.1;
+  color:#0c0633
+}
+
+.col-md-6{
+  position:relative;min-height:1px;padding-left:15px;padding-right:15px;
+  float:left;
+  width:50%
+}
+
+.form-group{margin-bottom:15px}
+
+.col-md-5{
+  position:relative;min-height:1px;padding-left:15px;padding-right:15px
+}
+
+.col-md-offset-1{margin-left:8.33333%}
+
+
+/* .scroller {
+  width: 500px;
+  height: 400px;
+  overflow: scroll;
+  scrollbar-width: thin;
+  border: 5px solid rgb(230, 224, 212);
+  background-color: rgb(230, 224, 212);
+  border-radius: 20px;
+  padding: 20px;
+  overflow-x: hidden;
+  max-width: 100%;
+} */
+
+.my-custom-scrollbar {
+  /* position: relative; */
+  height: 350px;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }

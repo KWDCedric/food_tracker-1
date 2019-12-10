@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html ng-app="FoodTracker">
+  <head>
+    <title>Food Tracker</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <script src="javascripts/app.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Custom styles for this template-->
+    <link href="/stylesheets/common.css" rel="stylesheet">
+    <link href="/stylesheets/recommendation.css" rel="stylesheet">
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand main-title-top" href="/">Food Tracker</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link" href="/search">Search Food</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/nutrition">Daily Nutrition</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/recommendation">Recommendation</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </br>
+
+<!-- 
+    <div class="container" ng-controller="recommendController">
+      <div class="jumbotron">
+        <div class="h5">Recommendation</div>
+        <br>
+        <div class="input-container">
+          <div class="h6">If you like ...</div>
+          <select ng-model="calorie" id="calorieName" class="calorie-input"/>
+            <option value="protein">protein</option>
+            <option value="fat">fat</option>
+            <option value="carbohydrate">carbohydrate</option>
+          </select>
+          <br>
+          <label for="calorieMin">Minimum percentage you would like: </label>
+          <input type="number" ng-model="min" placeholder="0" id="calorieMin" class="range-input" min="0" max="100"/></input>
+          <br>
+          <label for="calorieMax">Maximum percentage you would like:</label>
+          <input type="number" ng-model="max" placeholder="0" id="calorieMax" class="range-input" min="0" max="100"/></input>
+          <br>
+          <button id="submitCalorieBtn" class="submit-btn" ng-click="submitIds()">Submit</button>
+        </div>
+        <div class="food-container">
+          <div class="food" ng-repeat="p in food">
+            <div class="column">{{p.descMajor}}</div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+<div class="section-container no-padding input-container" ng-controller="recommendController ">
+    <div class="container recommendation-container search-container">
+        <div class="jumbotron">
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="page-title-top">Macros Preference</div>
+                <div class="form-group">
+                  <h6><label for="calorieName">Choose the macros you care about: </label></h6>
+                  <select ng-model="calorie" id="calorieName" class="calorie-input major-desc-input">
+                    <option value="protein">Protein</option>
+                    <option value="fat">Fat</option>
+                    <option value="carbohydrate">Carbohydrate</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <h6><label for="calorieMin">Minimum percentage you would like (0-100): </label></h6>
+                    <input type="number" ng-model="min" placeholder="0" id="calorieMin" class="range-input" min="0" max="100"/></input>
+                </div>
+                <div class="form-group">
+                    <h6><label for="calorieMax">Maximum percentage you would like (0-100):</label></h6>
+                    <input type="number" ng-model="max" placeholder="0" id="calorieMax" class="range-input" min="0" max="100"/></input>
+                </div>
+                <button id="submitCalorieBtn" class="submit-btn" ng-click="submitIds()">Submit</button>
+              </div>
+                <div class="col-md-6">
+                  <h4 style="padding-top: 10px;">Recommended Food</h4>
+                  <br>
+                  <!-- <div class="scroller">   
+                      <div class="food" ng-repeat="p in food">
+                          {{p.descMajor | capitalize}}
+                      </div>
+                    </div> -->
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                      <table class="table table-hover food" >
+                        <tbody>
+                          <tr ng-repeat="p in food">
+                            <td scope="row">{{p.descMajor | capitalize}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                  </div>
+            </div>
+    </div>
+</div>
+
+<div class="section-container no-padding" ng-controller="recommendController">
+    <div class="container recommendation-container">
+          <div class='row'>
+              <div class="col-md-4 floating">
+              <a class="twitter-timeline result-column" data-lang="en" data-width="310" data-height="590" 
+              href="https://twitter.com/tastemade?ref_src=twsrc%5Etfw">Tweets by tastemade</a> 
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              </div> 
+
+              <div class="col-md-4 floating1">
+                  <a class="twitter-timeline result-column" data-lang="en" data-width="310" data-height="590"
+              href="https://twitter.com/tasty?ref_src=twsrc%5Etfw">Tweets by tasty</a> 
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              </div>
+
+
+              <div class="col-md-4 floating">
+                  <a class="twitter-timeline result-column" data-lang="en" data-width="310" data-height="590"
+              href="https://twitter.com/EaterPhilly?ref_src=twsrc%5Etfw">Tweets by EaterPhilly</a> 
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+    <!-- <img src="/assets/recommend-img1.gif" alt="food_animation" style="width:220px;height:130px;" class="center"> -->
+
+    <!-- Include these before the end of body tag in every HTML file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+
+</html>
