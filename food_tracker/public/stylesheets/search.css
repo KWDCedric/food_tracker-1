@@ -111,13 +111,6 @@ th {
   color:#0c0633
 }
 
-.col-xs-12{
-  /* position:relative; */
-  /* min-height:1px; */
-  /* padding-left:15px;
-  padding-right:15px; */
-}
-
 .col-md-6{
   position:relative;min-height:1px;padding-left:15px;padding-right:15px;
   float:left;
