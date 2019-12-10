@@ -1,10 +1,13 @@
 # food_tracker 
 
-### Collaborators: 
+We finished all proposed features in project proposal and even add some fancy features! Every body worked hard and we hope you can enjoy it!
+## Mentor TA:
+Alice Deng
 
+## Collaborators: 
 Wendi Kuang; Xuchen Wang; Yixue (Wendy) Feng; Yuezhan Tao
 
-### Directory:
+## Directory:
 
 **food_tracker/final_data** contains cleaned data used in this project
 
@@ -17,7 +20,10 @@ Wendi Kuang; Xuchen Wang; Yixue (Wendy) Feng; Yuezhan Tao
 
 **food_tracker/food_tracker** is the our whole application directory
 
-### Instructions for building it locally:
+## Dependencies:
+We have generated a list of dependecies named **requirements.txt** in **food_tracker/requirements.txt**
+
+## Instructions for building it locally:
 You don't have to set up the database locally since we have migrated it into AWS.
 1. Download the .zip file, upzip it.
 2. Open a terminal and go to the application directory, which should be a **food_tracker** directory conataining files like db-config-aws.js, package.json.
