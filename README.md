@@ -4,7 +4,7 @@
 
 Wendi Kuang; Xuchen Wang; Yixue (Wendy) Feng; Yuezhan Tao
 
-###Directory:
+### Directory:
 
 **food_tracker/final_data** contains cleaned data used in this project
 
