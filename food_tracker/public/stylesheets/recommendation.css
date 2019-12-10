@@ -187,3 +187,12 @@ h5 {
   65%  { transform: translate(0, 0px); }
   to   { transform: translate(0, 15px); }    
 }
+
+.my-custom-scrollbar {
+  /* position: relative; */
+  height: 350px;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
