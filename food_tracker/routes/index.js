@@ -59,9 +59,6 @@ router.get('/search1', function(req, res) {
 });
 
 
-// Specifies that when the app recieves a GET request at <PATH>,
-// it should respond by sending file <MY_FILE>
-
 router.get('/nutrition', function(req, res) {
   res.sendFile(path.join(__dirname, '../', 'views', 'nutrition.html'));
 });
@@ -78,29 +75,6 @@ router.get('/recommendation', function(req, res) {
 /* ------------------------------------------------ */
 /* ----- Routers to handle JSON data requests ----- */
 /* ------------------------------------------------ */
-
-/*
-
-General Template for GET requests:
-
-router.get('/routeName/:customParameter', function(req, res) {
-
-  // Parses the customParameter from the path, and assigns it to variable myData
-  var myData = req.params.customParameter;
-
-  var query = '';
-
-  console.log(query);
-
-  connection.query(query, function(err, rows, fields) {
-    if (err) console.log(err);
-    else {
-      // Returns the result of the query (rows) in JSON as the response
-      res.json(rows);
-    }
-  });
-});
-*/
 
 router.get('/category1/sql', function(req, res) {
   // Parses the customParameter from the path, and assigns it to variable myData
@@ -119,8 +93,7 @@ router.get('/category1/sql', function(req, res) {
 });
 
 router.get('/category2/sql', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
-  // var myData = req.params.s;
+  
   var query = `SELECT DISTINCT descMajor
                FROM food
                WHERE food_category_id = 11 AND LENGTH(descMajor)<30 AND descMajor NOT REGEXP '[0-9]+' `;
@@ -128,15 +101,13 @@ router.get('/category2/sql', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 router.get('/category3/sql', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
-  // var myData = req.params.s;
+  
   var query = `SELECT DISTINCT descMajor
                FROM food
                WHERE food_category_id = 10 or food_category_id = 13 or food_category_id = 17 AND LENGTH(descMajor)<30`;
@@ -144,15 +115,13 @@ router.get('/category3/sql', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 router.get('/category4/sql', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
-  // var myData = req.params.s;
+
   var query = `SELECT DISTINCT descMajor
                FROM food
                WHERE food_category_id = 23 AND LENGTH(descMajor)<30`;
@@ -160,15 +129,12 @@ router.get('/category4/sql', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 router.get('/category5/sql', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
-  // var myData = req.params.s;
   var query = `SELECT DISTINCT descMajor
                FROM food
                WHERE food_category_id = 21 AND LENGTH(descMajor)<30`;
@@ -176,15 +142,12 @@ router.get('/category5/sql', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 router.get('/category6/sql', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
-  // var myData = req.params.s;
   var query = `SELECT DISTINCT descMajor
                FROM food
                WHERE food_category_id = 14 AND LENGTH(descMajor)<30`;
@@ -192,23 +155,15 @@ router.get('/category6/sql', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 
-// SELECT DISTINCT F.descMajor
-// FROM food F JOIN food_category C ON F.food_category_id = C.food_category_id
-// WHERE C.descMajor = '';
 router.get('/search/:s', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
   var myData = req.params.s;
   console.log(myData);
-  // var query = `SELECT DISTINCT F.descMinor
-  //             FROM food F
-  //             WHERE descMajor LIKE '%${mydata}%'`;
   var query = `SELECT DISTINCT F.descMajor, F.descMinor, F.fdc_id
               FROM food F
               WHERE lower(descMajor) LIKE '%` + myData + `%'
@@ -218,19 +173,14 @@ router.get('/search/:s', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 router.get('/search1/:s', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
   var myData = req.params.s;
   console.log(myData);
-  // var query = `SELECT DISTINCT F.descMinor
-  //             FROM food F
-  //             WHERE descMajor LIKE '%${mydata}%'`;
   var query = `SELECT FN.amount, N.name
               FROM food_nutrient FN JOIN food F ON FN.fdc_id = F.fdc_id
               JOIN nutrient N ON FN.nutrient_id = N.nutrient_id
@@ -240,19 +190,14 @@ router.get('/search1/:s', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 router.get('/nutrition/:s', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
   var myData = req.params.s;
   console.log(myData);
-  // var query = `SELECT DISTINCT F.descMinor
-  //             FROM food F
-  //             WHERE descMajor LIKE '%${mydata}%'`;
   var query = `SELECT DISTINCT F.descMajor, F.descMinor, F.fdc_id
               FROM food F
               WHERE lower(descMajor) LIKE '%` + myData + `%'
@@ -261,23 +206,16 @@ router.get('/nutrition/:s', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 router.get('/nutrition1/:id/:amount', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
   var id = req.params.id;
   var amount = req.params.amount;
-
-  // console.log(myData);
   console.log(id);
   console.log(amount);
-  // var query = `SELECT DISTINCT F.descMinor
-  //             FROM food F
-  //             WHERE descMajor LIKE '%${mydata}%'`;
   var query = `
   WITH temp_protein AS(
       SELECT F.fdc_id, FN.amount*(`+amount+`/100) AS protein_value
@@ -304,21 +242,15 @@ router.get('/nutrition1/:id/:amount', function(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
 });
 
 router.get('/recommendation/:min/:max/:name', function(req, res) {
-  // Parses the customParameter from the path, and assigns it to variable myData
   var myData_min = (req.params.min / 100);
   var myData_max = (req.params.max / 100);
   var myData_name = req.params.name.toLowerCase();
-  // console.log(req.params);
-  // console.log(myData_min);
-  // console.log(myData_max);
-  // console.log(myData_name);
   var query = `WITH temp_protein AS(
     SELECT F.fdc_id, FN.amount * CCF.protein_value AS protein_value
     FROM food F JOIN food_nutrient FN ON F.fdc_id = FN.fdc_id
@@ -362,7 +294,6 @@ ORDER BY F.descMajor;
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
-      // Returns the result of the query (rows) in JSON as the response
       res.json(rows);
     }
   });
