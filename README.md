@@ -1,4 +1,4 @@
-# food_tracker 
+# Food Tracker 
 
 We finished all proposed features in project proposal and even add some fancy features! Every body worked hard and we hope you can enjoy it!
 
