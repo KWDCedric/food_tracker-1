@@ -1,6 +1,9 @@
 # food_tracker 
 
 We finished all proposed features in project proposal and even add some fancy features! Every body worked hard and we hope you can enjoy it!
+
+<img src="./photos/mainpage.jpg" alt="mainpage" style="zoom:50%;" />
+
 ## Mentor TA:
 Alice Deng
 
