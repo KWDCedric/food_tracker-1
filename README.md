@@ -4,11 +4,11 @@ We finished all proposed features in project proposal and even add some fancy fe
 
 <img src="./photos/mainpage.jpg" alt="mainpage" style="zoom:50%;" />
 
-## Mentor TA:
-Alice Deng
-
 ## Collaborators: 
 Wendi Kuang; Xuchen Wang; Yixue (Wendy) Feng; Yuezhan Tao
+
+## Mentor TA:
+Alice Deng
 
 ## Directory:
 
