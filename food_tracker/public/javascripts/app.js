@@ -136,9 +136,13 @@ app.controller('recommendController', function($scope, $http) {
       url:'/recommendation/' + $scope.min + '/' + $scope.max + '/' + $scope.calorie,
       method: 'GET'
     }).then(res => {
-      console.log($scope.calorie)
+      console.log($scope.calorie);
       console.log("Recommendation: ", res.data);
-      $scope.food = res.data;
+      var returnData = res.data;
+      for (var i=0; i < res.data.length; i++){
+        returnData[i].descMajor = returnData[i].descMajor.replace("NA" ,"");
+      }
+      $scope.food = returnData;
       // $scope.items = res.data;
       // $scope.selectedItem = res.data[0];
     }, err => {
